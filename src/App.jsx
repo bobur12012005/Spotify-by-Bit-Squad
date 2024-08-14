@@ -61,25 +61,25 @@ function App() {
     let content_albums = [
         {
             id: 1,
-            image: "/images/user.jpg",
+            image: "/images/picture.jpg",
             title: "Grace's Album",
             name: "Grace Lee"
         },
         {
             id: 2,
-            image: "/images/user.jpg",
+            image: "/images/picture.jpg",
             title: "Diana's Album",
             name: "Diana Prince"
         },
         {
             id: 3,
-            image: "/images/user.jpg",
+            image: "/images/picture.jpg",
             title: "Bob's Album",
             name: "Bob Smith"
         },
         {
             id: 4,
-            image: "/images/user.jpg",
+            image: "/images/picture.jpg",
             title: "Hank's Album",
             name: "Hank Pym"
         }

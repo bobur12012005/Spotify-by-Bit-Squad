@@ -706,7 +706,160 @@ body {
                     }
                 }
             }
+            .album-img-data-place {
+                width: 100%;
+                height: 50%;
+                margin-top: -30px;
+                background: #181818;
+                padding: 20px;
+                display: flex;
+                align-items: end;
 
+                .album-data {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 20px;
+
+                    img {
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 4px;
+                    }
+
+                    span {
+                        color: white;
+                        font-size: 80px;
+                        font-weight: 900;
+                    }
+                }
+            }
+
+            .total-play-button-place {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 30px;
+                padding: 20px;
+
+                .play-pause {
+                    width: 60px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 100%;
+                    background-color: #65D36E;
+                    padding-left: 1px;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+
+                    img {
+                        width: 70%;
+                        height: 70%;
+                    }
+                }
+
+                .follow {
+                    width: fit-content;
+                    height: fit-content;
+                    padding: 5px 10px;
+                    border: 2px solid #bbbbbb;
+                    color: white;
+                    border-radius: 20px;
+                    font-weight: 700;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-bottom: 6px;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+
+                .opions {
+                    width: fit-content;
+                    height: fit-content;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+            .popular-songs {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding-inline: 20px;
+                margin-top: 20px;
+
+                .song-top {
+                    width: 100%;
+                    height: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid #919191;
+
+                    .left-song {
+                        width: 60%;
+                        display: flex;
+                        flex-direction: row;
+
+                        .number {
+                            width: 50px;
+                            color: #919191;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        .title {
+                            color: #919191;
+                            letter-spacing: 1px;
+                        }
+                    }
+
+                    .popularity {
+                        width: 20%;
+                        display: flex;
+                        align-items: center;
+
+                        span {
+                            color: #919191;
+                            letter-spacing: 1px;
+                        }
+                    }
+
+                    .duration {
+                        width: 20%;
+                        display: flex;
+                        justify-content: end;
+                        padding-right: 23px;
+
+                        span {
+                            color: #919191;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+
+                .popular-songs-container {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-block: 10px;
+                }
+            }
             footer {
                 margin-top: 50px;
                 margin-bottom: 35px;

@@ -31,7 +31,7 @@ const Layout = () => {
 									<span>Home</span>
 								</button>
 							</Link>
-							<Link to="/"  id="search-btn">
+							<Link to="/Search"  id="search-btn">
 								<button>
 									<img src="/icons/search.svg" alt="Search" />
 									<span>Search</span>

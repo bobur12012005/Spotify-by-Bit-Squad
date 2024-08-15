@@ -120,7 +120,7 @@ function App() {
 				</div>
 			</div>
 		</Layout>
-	);
+	)
 }
 
 export default App;

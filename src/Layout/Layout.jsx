@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Followings from '../components/Followings'
 import Singers from '../components/Singers'
 import Contents from '../components/Contents'
 import { artists } from "../App";
+import { Link, Outlet } from "react-router-dom";
 
 
-const Layout = ({ children }) => {
+const Layout = () => {
+	const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.play().catch(error => {
+                console.error('Autoplay was prevented:', error);
+            });
+        }
+    }, []); 
 	return (
 		<>
 			<div className="over-total">
 				<div className="total-container">
 					<aside className="left-sidebar">
 						<div className="left-sidebar-top">
-							<a href="#" id="home-btn">
+							<Link to="/" id="home-btn">
 								<button className="active-button">
 									<img
 										src="/icons/home-active.svg"
@@ -20,13 +30,13 @@ const Layout = ({ children }) => {
 									/>
 									<span>Home</span>
 								</button>
-							</a>
-							<a href="#" id="search-btn">
+							</Link>
+							<Link to="/"  id="search-btn">
 								<button>
 									<img src="/icons/search.svg" alt="Search" />
 									<span>Search</span>
 								</button>
-							</a>
+							</Link>
 						</div>
 						<div className="left-sidebar-bottom">
 							<div className="library-controller">
@@ -121,8 +131,8 @@ const Layout = ({ children }) => {
 							</div>
 						</header>
 
-                        {children}
-
+                        {/* {children} */}
+{<Outlet/>}
 						<footer>
 							<div className="footer-top">
 								<div className="company links-column">
@@ -297,7 +307,7 @@ const Layout = ({ children }) => {
 				</div>
 
 				<div className="player">
-					<audio id="audio" src="" />
+					<audio ref={audioRef}  id="audio" src={'/public/images/Ирина Кайратовна – Айдахар.mp'} />
 					<div className="left-side-player">
 						<div className="song-img">
 							<img src="/images/note.jpg" alt="Song" />

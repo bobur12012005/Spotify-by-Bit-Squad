@@ -20,7 +20,7 @@ const Layout = () => {
 									<span>Home</span>
 								</button>
 							</Link>
-							<Link to="/Search"  id="search-btn">
+							<Link to="/Search" id="search-btn">
 								<button>
 									<img src="/icons/search.svg" alt="Search" />
 									<span>Search</span>
@@ -119,9 +119,7 @@ const Layout = () => {
 								</div>
 							</div>
 						</header>
-
-                        {/* {children} */}
-{<Outlet/>}
+						{<Outlet />}
 						<footer>
 							<div className="footer-top">
 								<div className="company links-column">
@@ -365,9 +363,8 @@ const Layout = () => {
 					</div>
 				</div>
 			</div>
-			{/* {children} */}
 		</>
-	);
-};
+	)
+}
 
-export default Layout;
+export default Layout

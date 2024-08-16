@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 function Contents({ item }) {
     return (
-        <Link to="/Musics">
+        <Link to="/Playlist">
             <div className="content">
                 <div className="content-img">
                     <img src={item.image} />

@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Layout from "./Layout/Layout";
-import Musics from "./pages/Musics";
-import Search from "./pages/Search";
-import Home from "./pages/Home";
+import { Route, Routes } from "react-router-dom"
+import "./App.css"
+import Layout from "./Layout/Layout"
+import Search from "./pages/Search"
+import Home from "./pages/Home"
+import Playlist from "./pages/Playlist"
 
 export let artists = [
   {
@@ -81,14 +81,14 @@ export let content_albums = [
     title: "Hank's Album",
     name: "Hank Pym",
   },
-];
+]
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/musics" element={<Musics />} />
+        <Route path="/playlist" element={<Playlist />} />
         <Route path="/search" element={<Search />} />
       </Route>
     </Routes>

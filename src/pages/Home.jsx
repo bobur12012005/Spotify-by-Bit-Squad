@@ -1,56 +1,56 @@
 import React from "react"
-import Contents from "../components/Contents";
-import Followings from "../components/Followings";
+import Contents from "../components/Contents"
+import Followings from "../components/Followings"
 
 export let artists = [
     {
         id: 1,
         name: "Alice Johnson",
         image: "/images/user.jpg",
-        type: "artist",
+        type: "artist"
     },
     {
         id: 2,
         name: "Bob Smith",
         image: "/images/user.jpg",
-        type: "artist",
+        type: "artist"
     },
     {
         id: 3,
         name: "Charlie Brown",
         image: "/images/user.jpg",
-        type: "artist",
+        type: "artist"
     },
     {
         id: 4,
         name: "Diana Prince",
         image: "/images/user.jpg",
-        type: "artist",
+        type: "artist"
     },
     {
         id: 5,
         name: "Eve Adams",
         image: "/images/user.jpg",
-        type: "artist",
+        type: "artist"
     },
     {
         id: 6,
         name: "Frank Castle",
         image: "/images/user.jpg",
-        type: "artist",
+        type: "artist"
     },
     {
         id: 7,
         name: "Grace Lee",
         image: "/images/user.jpg",
-        type: "artist",
+        type: "artist"
     },
     {
         id: 8,
         name: "Hank Pym",
         image: "/images/user.jpg",
-        type: "artist",
-    },
+        type: "artist"
+    }
 ]
 
 export let content_albums = [
@@ -58,26 +58,26 @@ export let content_albums = [
         id: 1,
         image: "/images/picture.jpg",
         title: "Grace's Album",
-        name: "Grace Lee",
+        name: "Grace Lee"
     },
     {
         id: 2,
         image: "/images/picture.jpg",
         title: "Diana's Album",
-        name: "Diana Prince",
+        name: "Diana Prince"
     },
     {
         id: 3,
         image: "/images/picture.jpg",
         title: "Bob's Album",
-        name: "Bob Smith",
+        name: "Bob Smith"
     },
     {
         id: 4,
         image: "/images/picture.jpg",
         title: "Hank's Album",
-        name: "Hank Pym",
-    },
+        name: "Hank Pym"
+    }
 ]
 
 function Home() {

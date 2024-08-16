@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
-
 function Songs() {
-    const [number, setNumber] = useState(1)
-
     return (
         <div className="song">
             <div className="left-song">
-                <span className="number">{number}</span>
+                <span className="number">0</span>
                 <div className="img">
                     <img src="/images/picture.jpg" alt="Song" />
                 </div>

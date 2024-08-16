@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react"
 import Singers from '../components/Singers'
 import { artists } from "../App"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useLocation } from "react-router-dom"
 
 const Layout = () => {
+	const location = useLocation()
 	return (
 		<>
 			<div className="over-total">
@@ -11,17 +12,14 @@ const Layout = () => {
 					<aside className="left-sidebar">
 						<div className="left-sidebar-top">
 							<Link to="/" id="home-btn">
-								<button className="active-button">
-									<img
-										src="/icons/home-active.svg"
-										alt="Home"
-									/>
+								<button className={location.pathname === '/' ? 'active-button' : ''}>
+									<img src={location.pathname === '/' ? '/icons/home-active.svg' : '/icons/home.svg'} />
 									<span>Home</span>
 								</button>
 							</Link>
 							<Link to="/Search" id="search-btn">
-								<button>
-									<img src="/icons/search.svg" alt="Search" />
+								<button className={location.pathname === '/Search' ? 'active-button' : ''}>
+									<img src={location.pathname === '/Search' ? '/icons/search-active.svg' : '/icons/search.svg'} />
 									<span>Search</span>
 								</button>
 							</Link>

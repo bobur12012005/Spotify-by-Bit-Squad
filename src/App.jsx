@@ -4,6 +4,7 @@ import Contents from "./components/Contents";
 import Followings from "./components/Followings";
 import Layout from "./Layout/Layout";
 import Musics from "./pages/Musics";
+import Search from "./pages/Search";
 
 export let artists = [
   {
@@ -85,54 +86,55 @@ export let content_albums = [
 
 function App() {
   return (
-	<Routes>
-	<Route path="/" element={<Layout />}>
-	  <Route
-		index
-		element={
-		  <>
-			<div className="sections">
-			  <button className="section active-section">All</button>
-			  <button className="section">Music</button>
-			  <button className="section">Podcasts</button>
-			</div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route
+          index
+          element={
+            <>
+              <div className="sections">
+                <button className="section active-section">All</button>
+                <button className="section">Music</button>
+                <button className="section">Podcasts</button>
+              </div>
 
-			<div className="following-singers-container">
-			  {artists.map((artist) => (
-				<Followings key={artist.id} item={artist} />
-			  ))}
-			</div>
+              <div className="following-singers-container">
+                {artists.map((artist) => (
+                  <Followings key={artist.id} item={artist} />
+                ))}
+              </div>
 
-			<div className="made-for-user boxes">
-			  <div className="boxes-top">
-				<span>Made For User</span>
-				<button className="show-all-1">Show All</button>
-			  </div>
-			  <div className="made-for-user-container boxes-content-container">
-				{content_albums.map((content) => (
-				  <Contents key={content.id} item={content} />
-				))}
-			  </div>
-			</div>
+              <div className="made-for-user boxes">
+                <div className="boxes-top">
+                  <span>Made For User</span>
+                  <button className="show-all-1">Show All</button>
+                </div>
+                <div className="made-for-user-container boxes-content-container">
+                  {content_albums.map((content) => (
+                    <Contents key={content.id} item={content} />
+                  ))}
+                </div>
+              </div>
 
-			<div className="your-favorite-artists boxes">
-			  <div className="boxes-top">
-				<span>Your Favorite Artists</span>
-				<button className="show-all-2">Show All</button>
-			  </div>
-			  <div className="your-favorite-artists-container boxes-content-container">
-				{artists.slice(0, 4).map((content) => (
-				  <Contents key={content.id} item={content} />
-				))}
-			  </div>
-			</div>
-		  </>
-		}
-	  />
-	  <Route path="/musics" element={<Musics />} />
-	</Route>
-  </Routes>
+              <div className="your-favorite-artists boxes">
+                <div className="boxes-top">
+                  <span>Your Favorite Artists</span>
+                  <button className="show-all-2">Show All</button>
+                </div>
+                <div className="your-favorite-artists-container boxes-content-container">
+                  {artists.slice(0, 4).map((content) => (
+                    <Contents key={content.id} item={content} />
+                  ))}
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route path="/musics" element={<Musics />} />
+        <Route path="/search" element={<Search/>}/>
+      </Route>
+    </Routes>
   )
 }
 
-export default App;
+export default App

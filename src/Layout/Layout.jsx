@@ -31,7 +31,7 @@ const Layout = () => {
 									<span>Home</span>
 								</button>
 							</Link>
-							<Link to="/"  id="search-btn">
+							<Link to="/Search"  id="search-btn">
 								<button>
 									<img src="/icons/search.svg" alt="Search" />
 									<span>Search</span>
@@ -307,7 +307,7 @@ const Layout = () => {
 				</div>
 
 				<div className="player">
-					<audio ref={audioRef}  id="audio" src={'/public/images/Ирина Кайратовна – Айдахар.mp'} />
+					<audio ref={audioRef}  id="audio" src={'/images/Ирина Кайратовна – Айдахар.mp'} />
 					<div className="left-side-player">
 						<div className="song-img">
 							<img src="/images/note.jpg" alt="Song" />

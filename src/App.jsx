@@ -88,7 +88,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/playlist" element={<Playlist />} />
+        <Route path="/playlist/:id" element={<Playlist />} />
         <Route path="/search" element={<Search />} />
       </Route>
     </Routes>

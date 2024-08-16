@@ -781,19 +781,16 @@ body {
                     }
                 }
 
-                .follow {
-                    width: fit-content;
-                    height: fit-content;
-                    padding: 5px 10px;
-                    border: 2px solid #bbbbbb;
-                    color: white;
-                    border-radius: 20px;
-                    font-weight: 700;
+                .add {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    padding-bottom: 6px;
                     transition: all 0.2s ease;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
 
                     &:hover {
                         transform: scale(1.05);

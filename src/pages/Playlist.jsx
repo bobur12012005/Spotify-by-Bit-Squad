@@ -20,9 +20,11 @@ function Playlist() {
                 <button className="play-pause">
                     <img src="/icons/play.svg" alt="Play" />
                 </button>
-                <button className="follow">Following</button>
+                <button className="add">
+                    <img src="/icons/plus-circle.svg" />
+                </button>
                 <button className="options">
-                    <img src="/icons/dots.svg" alt="Options" />
+                    <img src="/icons/dots.svg" />
                 </button>
             </div>
 

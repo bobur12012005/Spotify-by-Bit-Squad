@@ -795,13 +795,16 @@ body {
             }
 
             .popular-songs {
+              
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 padding-inline: 20px;
-                margin-top: 20px;
 
                 .song-top {
+                    position: sticky;
+                    top: 65px;
+                    background-color:#181818;
                     width: 100%;
                     height: 30px;
                     display: flex;
@@ -811,7 +814,7 @@ body {
                     border-bottom: 1px solid #919191;
 
                     .left-song {
-                        width: 60%;
+                        width: 58%;
                         display: flex;
                         flex-direction: row;
 
@@ -846,10 +849,10 @@ body {
                         justify-content: end;
                         padding-right: 23px;
 
-                        span {
-                            color: #919191;
-                            letter-spacing: 1px;
-                        }
+                       img{
+                        width: 21%;
+                        object-fit: contain;
+                       }
                     }
                 }
 
@@ -858,6 +861,97 @@ body {
                     display: flex;
                     flex-direction: column;
                     margin-block: 10px;
+                }
+
+                .see-more {
+                    width: fit-content;
+                    height: fit-content;
+                    color: #919191;
+                    font-weight: 700;
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+            .popular-songs-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-block: 10px;
+
+                .song {
+                    width: 100%;
+                    height: 60px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: 4px;
+                
+                    &:hover {
+                        background-color: #353535;
+                    }
+                
+                    .left-song {
+                        width: 60%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        padding-right: 20px;
+                
+                        .number {
+                            width: 50px;
+                            min-width: 50px;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                
+                        .img {
+                            width: 40px;
+                            min-width: 40px;
+                            height: 40px;
+                            border-radius: 4px;
+                            overflow: hidden;
+                
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                
+                        .title {
+                            color: white;
+                            margin-left: 23px;
+                
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                
+                    .popularity {
+                        width: 20%;
+                        display: flex;
+                        align-items: center;
+                
+                        span {
+                            color: white;
+                        }
+                    }
+                
+                    .duration {
+                        width: 20%;
+                        display: flex;
+                        justify-content: end;
+                        padding-right: 25px;
+                
+                        span {
+                            color: white;
+                        }
+                    }
                 }
             }
             footer {

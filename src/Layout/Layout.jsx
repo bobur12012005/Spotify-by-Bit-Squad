@@ -94,7 +94,6 @@ const Layout = () => {
 									<button>
 										<img src="/icons/next-page.svg" />
 									</button>
-									<input type="text" />
 								</div>
 								<div className="right-header">
 									<button className="explore-btn">

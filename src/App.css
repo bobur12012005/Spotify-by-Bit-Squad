@@ -1441,3 +1441,59 @@ body {
         }
     }
 }
+
+.browse {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    margin-top: 30px;
+    gap: 20px;
+    
+    .top {
+        display: flex;
+        align-items: center;
+
+        span {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+    }
+
+    .browse-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 150px);
+        gap: 20px;
+
+        .content {
+            position: relative;
+            padding: 20px;
+            background: blue;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            span {
+                font-size: 20px;
+                font-weight: 700;
+                color: white;
+            }
+
+            img {
+                position: absolute;
+                width: 115px;
+                height: 115px;
+                transform: rotate(30deg);
+                right: -20px;
+                bottom: -20px;
+                border-radius: 4px;
+            }
+        }
+    }
+}

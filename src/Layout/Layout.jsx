@@ -1,21 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import Followings from '../components/Followings'
+import React, { useEffect, useRef } from "react"
 import Singers from '../components/Singers'
-import Contents from '../components/Contents'
-import { artists } from "../App";
-import { Link, Outlet } from "react-router-dom";
+import { artists } from "../App"
+import { Link, Outlet } from "react-router-dom"
 
 
 const Layout = () => {
-	const audioRef = useRef(null);
-
-    useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.play().catch(error => {
-                console.error('Autoplay was prevented:', error);
-            });
-        }
-    }, []); 
 	return (
 		<>
 			<div className="over-total">
@@ -307,7 +296,6 @@ const Layout = () => {
 				</div>
 
 				<div className="player">
-					<audio ref={audioRef}  id="audio" src={'/images/Ирина Кайратовна – Айдахар.mp'} />
 					<div className="left-side-player">
 						<div className="song-img">
 							<img src="/images/note.jpg" alt="Song" />

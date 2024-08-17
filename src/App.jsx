@@ -4,6 +4,7 @@ import Layout from "./Layout/Layout"
 import Search from "./pages/Search"
 import Home from "./pages/Home"
 import Playlist from "./pages/Playlist"
+import Login from "./pages/Login"
 
 export let artists = [
   {
@@ -91,6 +92,9 @@ function App() {
         <Route path="/playlist/:id" element={<Playlist />} />
         <Route path="/search" element={<Search />} />
       </Route>
+
+      <Route path="/Login" element={<Login />} />
+      
     </Routes>
   )
 }

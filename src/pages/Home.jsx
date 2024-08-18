@@ -90,7 +90,7 @@ function Home() {
       if (hash) {
         token = hash.split("=")[1].split("&")[0];
         localStorage.setItem("token", token);
-        location.assign("/");
+        location.assign("/")
       }
     }
   }, []);

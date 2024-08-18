@@ -5,7 +5,6 @@ import Search from "./pages/Search"
 import Home from "./pages/Home"
 import Playlist from "./pages/Playlist"
 import Login from "./pages/Login"
-
 export let artists = [
   {
     id: 1,
@@ -91,10 +90,9 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/playlist/:id" element={<Playlist />} />
         <Route path="/search" element={<Search />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
       </Route>
-
       <Route path="/Login" element={<Login />} />
-      
     </Routes>
   )
 }

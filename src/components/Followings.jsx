@@ -1,3 +1,5 @@
+import React from 'react'
+
 function Followings({ item }) {
     return (
         <a href="#" className="link">

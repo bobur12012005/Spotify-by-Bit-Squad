@@ -1,3 +1,5 @@
+import React from 'react'
+
 function Songs({ item, number }) {
   function formatDuration(durationMs) {
     const totalSeconds = Math.floor(durationMs / 1000);
@@ -30,4 +32,4 @@ function Songs({ item, number }) {
   );
 }
 
-export default Songs;
+export default Songs

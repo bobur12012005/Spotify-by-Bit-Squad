@@ -1,0 +1,124 @@
+@media (max-width: 1200px) {
+    body {
+        .total-container {
+            .left-sidebar {
+                width: 270px;
+            }
+
+            .container {
+                width: 100% !important;
+            }
+
+            .right-sidebar {
+                display: none !important;
+            }
+        }
+
+        .player {
+            padding-bottom: 15px;
+            align-items: end;
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .over-total {
+        .player {
+            display: none;
+        }
+        .tools {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 90px;
+            button{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                width: 60px;
+                img{
+                    width: 32px;
+                }
+            }
+            span{
+                color: #fff;
+            }
+        }
+        & .total-container {
+            & .container {
+                & footer {
+                    .footer-top {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 23px;
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
+                }
+                & .boxes {
+                    & .boxes-top {
+                        .show-all-1 {
+                            display: none;
+                        }
+                        .mobile-settings{
+                            display: block;
+                            width: 30px;
+                        }
+                    }
+                }
+                & header {
+                    .inner-header {
+                        display: none;
+                    }
+                }
+                .sections {
+                    display: none;
+                }
+                .following-singers-container {
+                    display: none;
+                }
+            }
+            .left-sidebar {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+/* @media (max-width: 500px) {
+    body {
+        .total-container {
+            .left-sidebar {
+                width: 50px;
+                min-width: 50px;
+            }
+
+            .container {
+                header {
+                    height: 50px;
+                }
+
+                .boxes {
+                    margin-top: 30px;
+
+                    .boxes-top {
+                        span {
+                            font-size: 18px;
+                        }
+                    }
+                }
+
+                footer {
+                    display: none;
+                }
+            }
+        }
+    }
+} */

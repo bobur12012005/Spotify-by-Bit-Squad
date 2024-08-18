@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import Singers from "../components/Singers";
-import { artists } from "../App";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import axios from "axios";
+import LeftSideBar from '../components/LeftSideBar'
+import LeftSideBarMini from "../components/LeftSideBarMini"
 
 const Layout = () => {
   let token = localStorage.getItem("token");
@@ -10,61 +10,13 @@ const Layout = () => {
   const showInput = location.pathname === "/Search";
   const showExploreButton = location.pathname !== "/Search";
   const [isActive, setIsActive] = useState(false);
-  const [FollowingsArtists, setFollowingsArtists] = useState([]);
   const handleClick = () => {
     setIsActive((prevState) => !prevState);
   };
   const containerClassName = isActive
     ? "search-side show-input"
     : "search-side";
-    
-  useEffect(() => {
-    
-    axios
-      .get("https://api.spotify.com/v1/me/playlists", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        const playlistId = response.data.items[0].id;
 
-        return axios.get(
-          `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      })
-      .then((response) => {
-        const artistIds = response.data.items
-          .map((track) => track.track.artists[0].id)
-          .join(",");
-
-        return axios.get(
-          `https://api.spotify.com/v1/artists?ids=${artistIds}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      })
-      .then((response) => {
-        const artists = response.data.artists;
-        const uniqueArtists = {};
-
-        artists.forEach((artist) => {
-          uniqueArtists[artist.id] = artist
-        })
-        const artistArray = Object.values(uniqueArtists);
-
-        setFollowingsArtists(artistArray);
-
-      })
-  }, [token])
   const handleBack = () => {
     window.history.back()
   }
@@ -72,11 +24,26 @@ const Layout = () => {
   const handleForward = () => {
     window.history.forward()
   }
+
+  const [isMini, setIsMini] = useState(true);
+  const openContextMenu = (event) => {
+    event.preventDefault();
+  };
+
+  const toggleSidebar = () => {
+    setIsMini(!isMini);
+  };
+
   return (
     <>
-      <div className="over-total">
+      <div className="over-total" onContextMenu={openContextMenu}>
         <div className="total-container">
-          <aside className="left-sidebar">
+          {isMini ? (
+            <LeftSideBar toggleSidebar={toggleSidebar} />
+          ) : (
+            <LeftSideBarMini toggleSidebar={toggleSidebar} />
+          )}
+          {/* <aside className="left-sidebar">
             <div className="left-sidebar-top">
               <Link to="/" id="home-btn">
                 <button
@@ -127,6 +94,7 @@ const Layout = () => {
                     </button>
                   </div>
                 </div>
+
                 <div className="library-controller-bottom">
                   <button>Playlists</button>
                   <button>Artists</button>
@@ -159,9 +127,14 @@ const Layout = () => {
                 </div>
               </div>
             </div>
-          </aside>
+          </aside> */}
 
-          <main className="container">
+          <main
+            className="container"
+            style={{
+              width: isMini ? "calc(100% - 680px)" : "calc(100% - 340px)"
+            }}
+          >
             <header>
               <div className="inner-header">
                 <div className="left-header">
@@ -224,6 +197,7 @@ const Layout = () => {
                   </a>
                 </div>
                 <div className="spotify-plans links-column">
+
                   <span>Spotify Plans</span>
                   <a href="https://www.spotify.com/uz/premium/?ref=spotifycom_footer_premium_individual">
                     Premium Individual
@@ -277,6 +251,7 @@ const Layout = () => {
               </div>
             </footer>
           </main>
+
 
           <aside className="right-sidebar active-right-sidebar">
             <div className="right-container-top">
@@ -391,6 +366,7 @@ const Layout = () => {
             <div className="sound">
               <img src="/icons/volume.svg" alt="Volume" />
               <input
+
                 type="range"
                 id="volume"
                 defaultValue="100"
@@ -399,15 +375,41 @@ const Layout = () => {
               />
             </div>
           </div>
-          
+
         </div>
-        
+
+        <div className="tools">
+          <Link to="/" id="home-btn">
+            <button className={location.pathname === '/' ? 'active-button' : ''}>
+              <img src={location.pathname === '/' ? '/icons/home-active.svg' : '/icons/home.svg'} />
+              <span>Home</span>
+            </button>
+          </Link>
+          <Link to="/Search" id="search-btn">
+            <button className={location.pathname === '/Search' ? 'active-button' : ''}>
+              <img src={location.pathname === '/Search' ? '/icons/search-active.svg' : '/icons/search.svg'} />
+              <span>Search</span>
+            </button>
+          </Link>
+          <button className="lib">
+            <img src="/icons/library.svg" alt="library" />
+            <span>Library</span>
+          </button>
+          <Link to="/DownloadMobile" className="download">
+            <button
+              style={{ display: location.pathname === "/DownloadMobile" ? "none" : "block" }}
+            >
+              <img src="/icons/logoforMobile.svg" alt="logo" />
+              <span>Download</span>
+            </button>
+          </Link>
+
+        </div>
+
       </div>
-      {/* <div className="modal-container">
-        
-      </div> */}
+      {/* <div className="modal-container"></div> */}
     </>
-  );
-};
+  )
+}
 
 export default Layout;

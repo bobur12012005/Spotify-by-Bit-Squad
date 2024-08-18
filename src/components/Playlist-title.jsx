@@ -1,3 +1,5 @@
+import React from 'react'
+
 function PlaylistTitle({ item }) {
   console.log(item);
   const imageUrl = item?.images?.[0]?.url;

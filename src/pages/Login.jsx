@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
+
+const CLIENT_ID = "1ae19f8d2f234e7c892017b84a40f24d"
+const REDIRECT_URI = "http://localhost:5173"
+const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
+const RESPONSE_TYPE = "token"
 
 const Login = () => {
-  const CLIENT_ID = "f7a7db9b182b4a528f8a9e87c62fff02";
-
-  const REDIRECT_URI = "http://localhost:5173";
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-  const RESPONSE_TYPE = "token";
  
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -18,7 +18,7 @@ const Login = () => {
         location.assign("/")
       }
     }
-  }, []);
+  }, [])
 
   return (
     <>
@@ -36,5 +36,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
+export default Login

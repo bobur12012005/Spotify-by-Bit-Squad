@@ -6,6 +6,9 @@ import Home from "./pages/Home"
 import Playlist from "./pages/Playlist"
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
+import "./media/App-media.css"
+import Download from "./pages/Download"
+import DownloadMobile from "./pages/DownloadMobile"
 
 export let artists = [
   {
@@ -93,6 +96,8 @@ function App() {
         <Route path="/playlist/:id" element={<Playlist />} />
         <Route path="/search" element={<Search />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/download" element={<Download />} />
+        <Route path="/downloadMobile" element={<DownloadMobile />} />
       </Route>
 
       <Route path="/Login" element={<Login />} />

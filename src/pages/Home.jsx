@@ -1,6 +1,7 @@
 import React from "react"
 import Contents from "../components/Contents"
 import Followings from "../components/Followings"
+import "../media/App-media.css"
 
 export let artists = [
     {
@@ -81,8 +82,10 @@ export let content_albums = [
 ]
 
 function Home() {
+    
     return (
         <>
+            
             <div className="sections">
                 <button className="section active-section">All</button>
                 <button className="section">Music</button>
@@ -99,6 +102,9 @@ function Home() {
                 <div className="boxes-top">
                     <span>Made For User</span>
                     <button className="show-all-1">Show All</button>
+                    <button className="mobile-settings">
+                        <img src="/icons/settingsForMobile.svg" alt="settings" />
+                    </button>
                 </div>
                 <div className="made-for-user-container boxes-content-container">
                     {content_albums.map((content) => (

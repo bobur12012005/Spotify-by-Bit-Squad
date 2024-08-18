@@ -1,5 +1,6 @@
 import React from "react"
-function Singers({ item }) {
+
+function SingersMini({ item }) {
     return (
         <a href='#' className="left-sidebar-singer">
             <div className="singer">
@@ -7,10 +8,10 @@ function Singers({ item }) {
                     <div className="singer-img">
                         <img src={item.image} />
                     </div>
-                    <div className="singer-data">
+                    {/* <div className="singer-data">
                         <div className="name">{item.name}</div>
                         <div className="proficiency">{item.type}</div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="song-playing-info">
                     <img src="/icons/sound.svg" alt="Sound Icon" />
@@ -20,4 +21,4 @@ function Singers({ item }) {
     )
 }
 
-export default Singers
+export default SingersMini

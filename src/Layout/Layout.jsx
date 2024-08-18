@@ -1,88 +1,37 @@
-import React, { useEffect, useRef } from "react"
-import Singers from '../components/Singers'
-import { artists } from "../App"
+import React, { useEffect, useRef, useState } from "react"
+import LeftSideBar from '../components/LeftSideBar'
 import { Link, Outlet, useLocation } from "react-router-dom"
+import LeftSideBarMini from "../components/LeftSideBarMini"
 
 const Layout = () => {
 	const location = useLocation()
+	const [isMini, setIsMini] = useState(true);
+	const openContextMenu = (event) => {
+        event.preventDefault();
+    };
+
+    const toggleSidebar = () => {
+        setIsMini(!isMini);
+    };
 	return (
 		<>
-			<div className="over-total">
+			<div className="over-total" onContextMenu={openContextMenu}>
 				<div className="total-container">
-					<aside className="left-sidebar">
-						<div className="left-sidebar-top">
-							<Link to="/" id="home-btn">
-								<button className={location.pathname === '/' ? 'active-button' : ''}>
-									<img src={location.pathname === '/' ? '/icons/home-active.svg' : '/icons/home.svg'} />
-									<span>Home</span>
-								</button>
-							</Link>
-							<Link to="/Search" id="search-btn">
-								<button className={location.pathname === '/Search' ? 'active-button' : ''}>
-									<img src={location.pathname === '/Search' ? '/icons/search-active.svg' : '/icons/search.svg'} />
-									<span>Search</span>
-								</button>
-							</Link>
-						</div>
-						<div className="left-sidebar-bottom">
-							<div className="library-controller">
-								<div className="library-controller-top">
-									<div className="library-controller-top-left">
-										<button className="library">
-											<img
-												src="/icons/library-active.svg"
-												alt="Library"
-											/>
-											<span>Your Library</span>
-										</button>
-									</div>
-									<div className="library-controller-top-right">
-										<button>
-											<span>+</span>
-										</button>
-										<button>
-											<img src="/icons/right.svg" />
-										</button>
-									</div>
-								</div>
-								<div className="library-controller-bottom">
-									<button>Playlists</button>
-									<button>Artists</button>
-								</div>
-							</div>
-							<div className="singers-over-container">
-								<div className="over-cont-top">
-									<div className="search-side">
-										<input
-											className="search-input"
-											type="text"
-											placeholder="Library Search"
-										/>
-										<button className="library-search">
-											<img
-												src="/icons/srch.svg"
-												alt="Search"
-											/>
-										</button>
-									</div>
-									<button className="recents">
-										<span>Recents</span>
-										<img src="/icons/list.svg" />
-									</button>
-								</div>
-								<div className="singers-container">
-									{artists.map((artist) => (
-										<Singers
-											key={artist.id}
-											item={artist}
-										/>
-									))}
-								</div>
-							</div>
-						</div>
-					</aside>
+					
+				{isMini ? (
+                    
+					<LeftSideBar toggleSidebar={toggleSidebar} />
+                ) : (
+                    <LeftSideBarMini toggleSidebar={toggleSidebar} />
+                )}
 
-					<main className="container">
+
+					<main
+                        className="container"
+                        style={{
+                            width: isMini ? "calc(100% - 680px)" :  "100%"
+                        }}
+                    >
 						<header>
 							<div className="inner-header">
 								<div className="left-header">
@@ -97,10 +46,14 @@ const Layout = () => {
 									<button className="explore-btn">
 										<span>Explore Premium</span>
 									</button>
-									<button className="install-btn">
-										<img src="/icons/download.svg" />
-										<span>Install App</span>
-									</button>
+
+									<Link to="/Download">
+										<button className="install-btn">
+											<img src="/icons/download.svg" />
+											<span>Install App</span>
+										</button>
+									</Link>
+
 									<button className="notification-btn">
 										<img
 											src="/icons/notification.svg"
@@ -358,6 +311,36 @@ const Layout = () => {
 							/>
 						</div>
 					</div>
+				</div>
+
+				<div className="tools">
+					<Link to="/" id="home-btn">
+	        			<button className={location.pathname === '/' ? 'active-button' : ''}>
+	        				<img src={location.pathname === '/' ? '/icons/home-active.svg' : '/icons/home.svg'} />
+	        				<span>Home</span>
+	        			</button>
+	        		</Link>
+	        		<Link to="/Search" id="search-btn">
+	        			<button className={location.pathname === '/Search' ? 'active-button' : ''}>
+	        				<img src={location.pathname === '/Search' ? '/icons/search-active.svg' : '/icons/search.svg'} />
+	        				<span>Search</span>
+	        			</button>
+	        		</Link>
+					<button className="lib">
+						<img src="/icons/library.svg" alt="library" />
+						<span>Library</span>
+					</button>
+					<Link to="/DownloadMobile" className="download">
+					  <button 
+					    style={{ display: location.pathname === "/DownloadMobile" ? "none" : "block" }}
+					  >
+					    <img src="/icons/logoforMobile.svg" alt="logo" />
+					    <span>Download</span>
+					  </button>
+					</Link>
+
+
+					
 				</div>
 			</div>
 		</>

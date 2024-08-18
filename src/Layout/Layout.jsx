@@ -1,12 +1,77 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Singers from "../components/Singers";
 import { artists } from "../App";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const Layout = () => {
+  let token = localStorage.getItem("token");
   const location = useLocation();
-  const showInput = location.pathname === "/Search"
-  const showExploreButton = location.pathname !== "/Search"
+  const showInput = location.pathname === "/Search";
+  const showExploreButton = location.pathname !== "/Search";
+  const [isActive, setIsActive] = useState(false);
+  const [FollowingsArtists, setFollowingsArtists] = useState([]);
+  const handleClick = () => {
+    setIsActive((prevState) => !prevState);
+  };
+  const containerClassName = isActive
+    ? "search-side show-input"
+    : "search-side";
+    
+  useEffect(() => {
+    
+    axios
+      .get("https://api.spotify.com/v1/me/playlists", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        const playlistId = response.data.items[0].id;
+
+        return axios.get(
+          `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      })
+      .then((response) => {
+        const artistIds = response.data.items
+          .map((track) => track.track.artists[0].id)
+          .join(",");
+
+        return axios.get(
+          `https://api.spotify.com/v1/artists?ids=${artistIds}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      })
+      .then((response) => {
+        const artists = response.data.artists;
+        const uniqueArtists = {};
+
+        artists.forEach((artist) => {
+          uniqueArtists[artist.id] = artist
+        })
+        const artistArray = Object.values(uniqueArtists);
+
+        setFollowingsArtists(artistArray);
+
+      })
+  }, [token])
+  const handleBack = () => {
+    window.history.back()
+  }
+
+  const handleForward = () => {
+    window.history.forward()
+  }
   return (
     <>
       <div className="over-total">
@@ -69,13 +134,16 @@ const Layout = () => {
               </div>
               <div className="singers-over-container">
                 <div className="over-cont-top">
-                  <div className="search-side">
+                  <div className={containerClassName}>
                     <input
                       className="search-input"
                       type="text"
                       placeholder="Library Search"
                     />
-                    <button className="library-search">
+                    <button
+                      className={containerClassName}
+                      onClick={handleClick}
+                    >
                       <img src="/icons/srch.svg" alt="Search" />
                     </button>
                   </div>
@@ -85,8 +153,8 @@ const Layout = () => {
                   </button>
                 </div>
                 <div className="singers-container">
-                  {artists.map((artist) => (
-                    <Singers key={artist.id} item={artist} />
+                  {FollowingsArtists.map((artist) => (
+                    <Singers item={artist} />
                   ))}
                 </div>
               </div>
@@ -97,10 +165,10 @@ const Layout = () => {
             <header>
               <div className="inner-header">
                 <div className="left-header">
-                  <button>
+                  <button onClick={handleBack}>
                     <img src="/icons/previous-page.svg" />
                   </button>
-                  <button>
+                  <button onClick={handleForward}>
                     <img src="/icons/next-page.svg" />
                   </button>
                   {showInput && <input type="text" placeholder="Search..." />}
@@ -331,8 +399,13 @@ const Layout = () => {
               />
             </div>
           </div>
+          
         </div>
+        
       </div>
+      {/* <div className="modal-container">
+        
+      </div> */}
     </>
   );
 };

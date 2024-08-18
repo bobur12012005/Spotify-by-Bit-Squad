@@ -1,11 +1,13 @@
 function PlaylistTitle({ item }) {
+  console.log(item);
+  const imageUrl = item?.images?.[0]?.url;
     return (
         <div className="playlist-data">
-        <img src="/images/picture.jpg" />
+        <img src={imageUrl || 'default-image-url.jpg'} alt={item?.name || 'Playlist Image'} />
         <div className="right-side-data">
           <span>Playlist</span>
-          <span>Playlist Title</span>
-          <span>Playlist Owner</span>
+          <span>{item.name}</span>
+          <span>{item.description}</span>
         </div>
       </div>
     )

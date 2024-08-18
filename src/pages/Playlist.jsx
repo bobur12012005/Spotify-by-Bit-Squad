@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Songs from "../components/Playlist-songs";
 import axios from "axios";
+import PlaylistTitle from "../components/Playlist-title";
 
 function Playlist() {
   let [tracks, setTracks] = useState([]);
+  let [playlistTitle, setPlaylistTitle] = useState([]);
   useEffect(() => {
     let hash = location.pathname;
     let token = localStorage.getItem("token");
@@ -15,20 +17,22 @@ function Playlist() {
         },
       })
       .then((res) => {
-        setTracks(res.data.items)        
+        setTracks(res.data.items)
+      })
+    axios
+      .get(`https://api.spotify.com/v1/playlists/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setPlaylistTitle(res.data);
       })
   }, [])
   return (
     <>
       <div className="playlist-img-data-place">
-        {/* <div className="playlist-data">
-          <img src="/images/picture.jpg" />
-          <div className="right-side-data">
-            <span>Playlist</span>
-            <span>Playlist Title</span>
-            <span>Playlist Owner</span>
-          </div>
-        </div> */}
+        <PlaylistTitle item={playlistTitle} />
       </div>
 
       <div className="total-play-button-place">

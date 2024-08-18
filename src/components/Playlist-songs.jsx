@@ -1,5 +1,4 @@
 function Songs({ item, number }) {
-  console.log(item.track.duration_ms);
   function formatDuration(durationMs) {
     const totalSeconds = Math.floor(durationMs / 1000);
     const minutes = Math.floor(totalSeconds / 60);

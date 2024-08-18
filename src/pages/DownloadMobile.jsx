@@ -7,6 +7,7 @@ function DownloadMobile() {
     return (
         <>
             
+        <div className="bg">
             <section className="moble-download">
                 <div className="block">
                     <img src="/icons/spotifyBlack.svg" alt="icon" />
@@ -19,6 +20,7 @@ function DownloadMobile() {
                     </button>
                 </div>
             </section>
+        </div>
             
             
         </>

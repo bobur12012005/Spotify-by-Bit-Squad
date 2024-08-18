@@ -69,7 +69,16 @@ function Search() {
         <>
             <section className="browse">
                 <div className="top">
+                    <button className="profile-btn">
+				    	<img
+				    		src="/images/user.jpg"
+				    		className="profile-image"
+				    	/>
+				    </button>
                     <span>Browse All</span>
+                </div>
+                <div className="search-input">
+                    <input type="text" placeholder="What you want to hear?" className="search-mobile" />
                 </div>
                 <div className="browse-container">
                     {allBrowse.map((brw) => (

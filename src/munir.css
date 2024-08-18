@@ -670,7 +670,7 @@ body {
             overflow-y: scroll;
             overflow-x: hidden;
             scrollbar-width: none;
-
+            
             header {
                 position: sticky;
                 top: 0;
@@ -826,7 +826,9 @@ body {
                 gap: 7px;
                 align-items: center;
                 margin-bottom: 30px;
-
+                .profile-btn{
+                    display: none;
+                }
                 .active-section {
                     color: black;
                     background-color: white;
@@ -1909,6 +1911,26 @@ body {
             }
         }
     }
+
+    .bg{
+        background: linear-gradient(48.366deg, #509bf5, #af2896);
+        width: 100%;
+        height: 100vh;
+        .moble-download{
+            display: flex;
+            flex-direction: column;
+        
+        }
+        &::after{
+            background: linear-gradient(transparent, #121212 90%);
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
 }
 
 .browse {
@@ -1917,11 +1939,23 @@ body {
     padding-inline: 20px;
     margin-top: 30px;
     gap: 20px;
-
+    .search-input{
+        display: none;
+    }
     .top {
         display: flex;
         align-items: center;
-
+        
+        gap: 12px;
+        .profile-btn{
+            width: 40px;
+            height: 40px;
+            img{
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+            }
+        }
         span {
             font-size: 24px;
             font-weight: 700;
@@ -1987,13 +2021,8 @@ body {
 .tools{
     display: none;
     
-    
 }
-.moble-download{
-    display: flex;
-    flex-direction: column;
 
-}
 .wanish{
     display: none;
 }

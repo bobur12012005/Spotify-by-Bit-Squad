@@ -331,9 +331,7 @@ const Layout = () => {
 						<span>Library</span>
 					</button>
 					<Link to="/DownloadMobile" className="download">
-					  <button 
-					    style={{ display: location.pathname === "/DownloadMobile" ? "none" : "block" }}
-					  >
+					  <button >
 					    <img src="/icons/logoforMobile.svg" alt="logo" />
 					    <span>Download</span>
 					  </button>

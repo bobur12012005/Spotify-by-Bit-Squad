@@ -6,6 +6,14 @@ import axios from 'axios'
 function LeftSideBar({ toggleSidebar }) {
 	let token = localStorage.getItem('token')
 	const [FollowingsArtists, setFollowingsArtists] = useState([]);
+	const [isActive, setIsActive] = useState(false)
+	const handleClick = () => {
+		setIsActive((prevState) => !prevState);
+	}
+	const containerClassName = isActive
+		? "search-side show-input"
+		: "search-side";
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -81,13 +89,13 @@ function LeftSideBar({ toggleSidebar }) {
 					</div>
 					<div className="singers-over-container">
 						<div className="over-cont-top">
-							<div className="search-side">
+							<div className={containerClassName}>
 								<input
 									className="search-input"
 									type="text"
 									placeholder="Library Search"
 								/>
-								<button className="library-search">
+								<button className={containerClassName} onClick={handleClick}>
 									<img
 										src="/icons/srch.svg"
 										alt="Search"

@@ -4,7 +4,7 @@ function Singers({ item }) {
             <div className="singer">
                 <div className="data-side">
                     <div className="singer-img">
-                        <img src={item.image} />
+                        <img src={item.images[0].url} />
                     </div>
                     <div className="singer-data">
                         <div className="name">{item.name}</div>

@@ -10,68 +10,42 @@ const Layout = () => {
   const showInput = location.pathname === "/Search";
   const showExploreButton = location.pathname !== "/Search";
   const [isActive, setIsActive] = useState(false);
-  const [FollowingsArtists, setFollowingsArtists] = useState([]);
+  const [FollowingsArtists, setFollowingsArtists] = useState([])
   const handleClick = () => {
     setIsActive((prevState) => !prevState);
-  };
+  }
   const containerClassName = isActive
     ? "search-side show-input"
     : "search-side";
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const responsePlaylists = await axios.get("https://api.spotify.com/v1/me/playlists", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
     
-  useEffect(() => {
+          const playlistId = responsePlaylists.data.items[0].id;
     
-    axios
-      .get("https://api.spotify.com/v1/me/playlists", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        const playlistId = response.data.items[0].id;
-
-        return axios.get(
-          `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      })
-      .then((response) => {
-        const artistIds = response.data.items
-          .map((track) => track.track.artists[0].id)
-          .join(",");
-
-        return axios.get(
-          `https://api.spotify.com/v1/artists?ids=${artistIds}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      })
-      .then((response) => {
-        const artists = response.data.artists;
-        const uniqueArtists = {};
-
-        artists.forEach((artist) => {
-          uniqueArtists[artist.id] = artist
-        })
-        const artistArray = Object.values(uniqueArtists);
-
-        setFollowingsArtists(artistArray);
-
-      })
-  }, [token])
-  const handleBack = () => {
-    window.history.back()
-  }
-
-  const handleForward = () => {
-    window.history.forward()
-  }
+          const responseTracks = await axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+    
+          const artistIds = responseTracks.data.items.map(track => track.track.artists[0].id).join(',');
+    
+          const responseArtists = await axios.get(`https://api.spotify.com/v1/artists?ids=${artistIds}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+    
+          setFollowingsArtists(responseArtists.data.artists);
+        } catch (error) {
+          console.error("Error fetching data from Spotify API:", error);
+        }
+      };
+    
+      if (token) {
+        fetchData();
+      }
+    }, [token]);
   return (
     <>
       <div className="over-total">
@@ -165,10 +139,10 @@ const Layout = () => {
             <header>
               <div className="inner-header">
                 <div className="left-header">
-                  <button onClick={handleBack}>
+                  <button>
                     <img src="/icons/previous-page.svg" />
                   </button>
-                  <button onClick={handleForward}>
+                  <button>
                     <img src="/icons/next-page.svg" />
                   </button>
                   {showInput && <input type="text" placeholder="Search..." />}
@@ -399,13 +373,8 @@ const Layout = () => {
               />
             </div>
           </div>
-          
         </div>
-        
       </div>
-      {/* <div className="modal-container">
-        
-      </div> */}
     </>
   );
 };

@@ -175,6 +175,7 @@ body {
               border-radius: 25px;
               color: white;
               transition: all 0.3s ease;
+              
 
               &:hover {
                 background-color: #80808060;
@@ -331,6 +332,7 @@ body {
 
               .active-singer {
                 background-color: #303030;
+
 
                 &:hover {
                   background-color: #404040;
@@ -491,6 +493,7 @@ body {
                   height: 25px;
                 }
               }
+
 
               &:hover {
                 transform: scale(1.05);
@@ -672,6 +675,7 @@ body {
             &:hover {
               background-color: #202020;
 
+
               .play-pause {
                 position: absolute;
                 opacity: 1;
@@ -839,6 +843,7 @@ body {
             height: 70%;
           }
         }
+
 
         .add {
           display: flex;
@@ -1030,6 +1035,7 @@ body {
         }
       }
 
+
       footer {
         margin-top: 50px;
         margin-bottom: 35px;
@@ -1215,6 +1221,7 @@ body {
                 text-decoration: underline;
               }
             }
+
 
             .singer-name {
               font-size: 16px;
@@ -1405,6 +1412,7 @@ body {
       align-items: center;
       gap: 10px;
 
+
       .controll-btns {
         display: flex;
         flex-direction: row;
@@ -1588,6 +1596,7 @@ body {
             opacity: 0;
             transition: opacity 0.2s;
           }
+
 
           &:hover::-webkit-slider-thumb {
             opacity: 1;

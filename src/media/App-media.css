@@ -173,9 +173,11 @@
                     }
                     h3{
                         color: #fff;
+                        font-size: 15px;
+                        text-align: center;
                     }
                     p{
-                        font-size: 15px;
+                        font-size: 11px;
                         text-align: center;
                         color: #fff;
                     }

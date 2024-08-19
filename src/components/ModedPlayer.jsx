@@ -23,7 +23,12 @@ function ModedPlayer(){
                         </div>
                     </div>
                     <div className="moded-player-progress">
-                        
+                        <span className="progress-now">minut</span>
+                        <input type="range" />
+                        <span className="progress-total">minut</span>
+                    </div>
+                    <div className="moded-player-tool-bar">
+                        gti 
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import "./App.css"
+import "./munir.css"
 import Layout from "./Layout/Layout"
 import Search from "./pages/Search"
 import Home from "./pages/Home"

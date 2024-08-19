@@ -12,7 +12,7 @@ function LeftSideBar({ toggleSidebar }) {
 	}
 	const containerClassName = isActive
 		? "search-side show-input"
-		: "search-side";
+		: "search-side"
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -120,7 +120,6 @@ function LeftSideBar({ toggleSidebar }) {
 			</aside>
 		</>
 	)
-
 }
 
 export default LeftSideBar

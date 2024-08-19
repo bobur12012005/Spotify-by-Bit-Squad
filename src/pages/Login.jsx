@@ -6,7 +6,6 @@ const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
 const RESPONSE_TYPE = "token"
 
 const Login = () => {
- 
   useEffect(() => {
     let token = localStorage.getItem("token");
     let hash = location.hash
@@ -28,12 +27,12 @@ const Login = () => {
             href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=playlist-modify-public`}
             className="anim"
           >
-            <span>ВОЙТИ В АККАУНТ</span>
+            <span>LOG-IN</span>
           </a>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default Login

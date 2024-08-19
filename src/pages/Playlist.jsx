@@ -68,7 +68,7 @@ function Playlist() {
         <button className="see-more">See more</button>
       </div>
     </>
-  );
+  )
 }
 
-export default Playlist;
+export default Playlist

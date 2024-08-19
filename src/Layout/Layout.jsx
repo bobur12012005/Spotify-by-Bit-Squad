@@ -25,14 +25,22 @@ const Layout = () => {
     window.history.forward()
   }
 
-  const [isMini, setIsMini] = useState(true);
+  const [isMini, setIsMini] = useState(true)
   const openContextMenu = (event) => {
     event.preventDefault();
-  };
+  }
 
   const toggleSidebar = () => {
     setIsMini(!isMini);
-  };
+  }
+
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleModal = () => {
+    setOpenModal(!openModal); // Toggle the modal state
+  }
+
 
   return (
     <>
@@ -162,9 +170,21 @@ const Layout = () => {
                       className="profile-image"
                     />
                   </button>
-                  <button className="profile-btn">
+                  <button className="profile-btn" onClick={handleModal}>
                     <img src="/images/user.jpg" className="profile-image" />
                   </button>
+                  {openModal && (
+                    <div className="header-profile-modal" onClick={handleModal}>
+                      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <Link className="profile-link" to="/profile">
+                          <button>Profile</button>
+                        </Link>
+                        <Link className="logout-link" to="/login">
+                          <button onClick={localStorage.removeItem('token')}>Log-out</button>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </header>

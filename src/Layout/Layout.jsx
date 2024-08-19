@@ -180,7 +180,7 @@ const Layout = () => {
                           <button>Profile</button>
                         </Link>
                         <Link className="logout-link" to="/login">
-                          <button onClick={localStorage.removeItem('token')}>Log-out</button>
+                          <button>Log-out</button>
                         </Link>
                       </div>
                     </div>

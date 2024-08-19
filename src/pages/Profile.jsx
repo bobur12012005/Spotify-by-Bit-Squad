@@ -1,4 +1,6 @@
 import React from "react"
+import { artists } from "./Home"
+import Contents from "../components/Contents"
 
 function Profile() {
     return (
@@ -22,7 +24,12 @@ function Profile() {
                     <span>Top Artists This Month</span>
                 </div>
                 <div className="made-for-user-container">
-                    
+                    {artists.slice(0,4).map((artist) => (
+                        <Contents
+                            key={artist.id}
+                            item={artist}
+                        />
+                    ))}
                 </div>
             </div>
 

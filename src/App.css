@@ -1094,6 +1094,11 @@ body {
                                 font-size: 16px;
                                 font-weight: 500;
                                 color: white;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 1;
+                            
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
                             }
 
 
@@ -1174,7 +1179,10 @@ body {
                             color: white;
                             font-size: 80px;
                             font-weight: 900;
-
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
                             &:nth-child(1) {
                                 font-size: 16px;
                                 font-weight: 600;

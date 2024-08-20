@@ -36,6 +36,7 @@ const Layout = () => {
     setOpenModal(!openModal);
   };
 
+  const isArtistsPage = location.pathname.startsWith('/artist')
   // const paramsText = location.pathname
   //   .split("/")
   //   .at(-1)
@@ -64,7 +65,7 @@ const Layout = () => {
               width: isMini ? "calc(100% - 680px)" : "calc(100% - 340px)",
             }}
           >
-            <header>
+            <header className={isArtistsPage ? 'nobackground' : ''}>
               <div className="inner-header">
                 <div className="left-header">
                   <button onClick={handleBack}>

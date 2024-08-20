@@ -31,7 +31,7 @@ function Songs({ item, number }) {
         <span>{formattedDuration}</span>
       </div>
     </Link>
-  );
+  )
 }
 
 export default Songs

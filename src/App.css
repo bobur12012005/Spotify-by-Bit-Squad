@@ -2339,3 +2339,122 @@ body {
         }
     }
 }
+
+.search-results {
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    padding-inline: 20px;
+    gap: 2%;
+
+    a {
+        width: 49%;
+
+        .main-result-place-all {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+
+            .top {
+                width: 100%;
+
+                span {
+                    color: white;
+                    font-size: 30px;
+                    font-weight: 700;
+                }
+            }
+
+            .main-result-place {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                padding: 20px;
+                background: #202020;
+                border-radius: 10px;
+                height: 212px;
+
+                .result-img {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 100%;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .result-name {
+                    color: white;
+                    font-size: 40px;
+                    font-weight: 700;
+                }
+
+                .result-type {
+                    color: #bbbbbb;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .other-results-place-all {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 49%;
+
+        .top {
+            width: 100%;
+
+            span {
+                color: white;
+                font-size: 30px;
+                font-weight: 700;
+            }
+        }
+
+        .other-results-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .song {
+                width: calc(100% + 20px);
+                height: 53px;
+                padding-inline: 8px;
+
+                &:hover {
+                    background-color: #353535;
+                }
+
+                .left-song {
+                    width: 80%;
+
+                    .number {
+                        display: none;
+                    }
+
+                    .title {
+                        margin-left: 10px;
+                    }
+                }
+
+                .popularity {
+                    display: none;
+                }
+
+                .duration {
+                    justify-content: end;
+                    padding-right: 0px;
+                }
+            }
+        }
+    }
+}

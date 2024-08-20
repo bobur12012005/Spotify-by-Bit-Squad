@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import axios from "axios";
-import LeftSideBar from '../components/LeftSideBar'
-import LeftSideBarMini from "../components/LeftSideBarMini"
+import LeftSideBar from "../components/LeftSideBar";
+import LeftSideBarMini from "../components/LeftSideBarMini";
 
 const Layout = () => {
   let token = localStorage.getItem("token");
@@ -18,29 +18,27 @@ const Layout = () => {
     : "search-side";
 
   const handleBack = () => {
-    window.history.back()
-  }
+    window.history.back();
+  };
 
   const handleForward = () => {
-    window.history.forward()
-  }
+    window.history.forward();
+  };
 
-  const [isMini, setIsMini] = useState(true)
+  const [isMini, setIsMini] = useState(true);
   const openContextMenu = (event) => {
     event.preventDefault();
-  }
+  };
 
   const toggleSidebar = () => {
     setIsMini(!isMini);
-  }
-
+  };
 
   const [openModal, setOpenModal] = useState(false);
 
   const handleModal = () => {
     setOpenModal(!openModal); // Toggle the modal state
-  }
-
+  };
 
   return (
     <>
@@ -140,7 +138,7 @@ const Layout = () => {
           <main
             className="container"
             style={{
-              width: isMini ? "calc(100% - 680px)" : "calc(100% - 340px)"
+              width: isMini ? "calc(100% - 680px)" : "calc(100% - 340px)",
             }}
           >
             <header>
@@ -160,6 +158,7 @@ const Layout = () => {
                       <span>Explore Premium</span>
                     </button>
                   )}
+                  
                   <button className="install-btn">
                     <img src="/icons/download.svg" />
                     <span>Install App</span>
@@ -175,7 +174,10 @@ const Layout = () => {
                   </button>
                   {openModal && (
                     <div className="header-profile-modal" onClick={handleModal}>
-                      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                      <div
+                        className="modal-content"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         <Link className="profile-link" to="/profile">
                           <button>Profile</button>
                         </Link>
@@ -217,7 +219,6 @@ const Layout = () => {
                   </a>
                 </div>
                 <div className="spotify-plans links-column">
-
                   <span>Spotify Plans</span>
                   <a href="https://www.spotify.com/uz/premium/?ref=spotifycom_footer_premium_individual">
                     Premium Individual
@@ -271,7 +272,6 @@ const Layout = () => {
               </div>
             </footer>
           </main>
-
 
           <aside className="right-sidebar active-right-sidebar">
             <div className="right-container-top">
@@ -386,7 +386,6 @@ const Layout = () => {
             <div className="sound">
               <img src="/icons/volume.svg" alt="Volume" />
               <input
-
                 type="range"
                 id="volume"
                 defaultValue="100"
@@ -395,19 +394,34 @@ const Layout = () => {
               />
             </div>
           </div>
-
         </div>
 
         <div className="tools">
           <Link to="/" id="home-btn">
-            <button className={location.pathname === '/' ? 'active-button' : ''}>
-              <img src={location.pathname === '/' ? '/icons/home-active.svg' : '/icons/home.svg'} />
+            <button
+              className={location.pathname === "/" ? "active-button" : ""}
+            >
+              <img
+                src={
+                  location.pathname === "/"
+                    ? "/icons/home-active.svg"
+                    : "/icons/home.svg"
+                }
+              />
               <span>Home</span>
             </button>
           </Link>
           <Link to="/Search" id="search-btn">
-            <button className={location.pathname === '/Search' ? 'active-button' : ''}>
-              <img src={location.pathname === '/Search' ? '/icons/search-active.svg' : '/icons/search.svg'} />
+            <button
+              className={location.pathname === "/Search" ? "active-button" : ""}
+            >
+              <img
+                src={
+                  location.pathname === "/Search"
+                    ? "/icons/search-active.svg"
+                    : "/icons/search.svg"
+                }
+              />
               <span>Search</span>
             </button>
           </Link>
@@ -416,20 +430,16 @@ const Layout = () => {
             <span>Library</span>
           </button>
           <Link to="/DownloadMobile" className="download">
-            <button
-              style={{ display: location.pathname === "/DownloadMobile" ? "none" : "block" }}
-            >
+            <button>
               <img src="/icons/logoforMobile.svg" alt="logo" />
               <span>Download</span>
             </button>
           </Link>
-
         </div>
-
       </div>
       {/* <div className="modal-container"></div> */}
     </>
-  )
-}
+  );
+};
 
 export default Layout;

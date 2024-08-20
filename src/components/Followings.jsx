@@ -19,7 +19,6 @@ function Followings({ item }) {
         </div>
       </div>
     </Link>
-  );
+  )
 }
-
 export default Followings;

@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import ArtistsTitle from '../components/Artists-title';
 import Songs from '../components/Playlist-songs';
 import axios from 'axios';
+import AlbumContent from '../components/Album-content';
+import ArtistContent from '../components/Artist-content';
 
 
 
 function Artist() {
     let [tracks, setTracks] = useState([])
     let [artistTitle, setArtistTitle] = useState([]);
+    let [album, setAlbum] = useState([])
+    let [similar, setSimilar] = useState([])
 
     useEffect(() => {
         let hash = location.pathname;
@@ -27,6 +31,19 @@ function Artist() {
             }
         })
         .then((res) => setTracks(res.data.tracks))
+        axios.get(`https://api.spotify.com/v1/artists/${id}/albums`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+        .then((res) => setAlbum(res.data.items))
+
+        axios.get(`https://api.spotify.com/v1/artists/${id}/related-artists`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+        .then((res) => setSimilar(res.data?.artists))
     }, [])
 
     return ( <>
@@ -56,7 +73,24 @@ function Artist() {
             <Songs key={item.id} item={item} number={index + 1} />
           ))}
         </div>
-        <button className="see-more">See more</button>
+      </div>
+
+      <div className="album">
+          <h3>Music</h3>
+          <div className="album-container">
+            {album.map((item, index) => (
+              <AlbumContent key={item.id} item={item} />
+            ))}
+          </div>
+      </div>
+
+      <div className="similar">
+          <h3>Also try</h3>
+          <div className="similar-container">
+            {similar.map((item, index) => (
+              <ArtistContent key={item.id} item={item} />
+            ))}
+          </div>
       </div>
 
     </> );

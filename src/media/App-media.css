@@ -112,6 +112,17 @@
                 .following-singers-container {
                     display: grid;
                     grid-template-columns: repeat(2,1fr);
+                    a{
+                        & .following-singer {
+                            & .name-side {
+                                span {
+                                    color: white;
+                                    font-weight: 600;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
                 }
                 .browse {
                     & .browse-container {
@@ -202,33 +213,26 @@
     }
 }
 
-/* @media (max-width: 500px) {
-    body {
+@media (max-width: 320px) {
+    .over-total{
         .total-container {
-            .left-sidebar {
-                width: 50px;
-                min-width: 50px;
-            }
-
             .container {
-                header {
-                    height: 50px;
-                }
-
-                .boxes {
-                    margin-top: 30px;
-
-                    .boxes-top {
-                        span {
-                            font-size: 18px;
+                .following-singers-container {
+                    display: grid;
+                    grid-template-columns: repeat(1,1fr);
+                    a{
+                        & .following-singer {
+                            & .name-side {
+                                span {
+                                    color: white;
+                                    font-weight: 600;
+                                    font-size: 9px;
+                                }
+                            }
                         }
                     }
-                }
-
-                footer {
-                    display: none;
                 }
             }
         }
     }
-} */
+}

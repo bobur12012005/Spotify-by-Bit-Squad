@@ -1096,7 +1096,7 @@ body {
                                 color: white;
                                 display: -webkit-box;
                                 -webkit-line-clamp: 1;
-                            
+
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                             }
@@ -1183,6 +1183,7 @@ body {
                             -webkit-line-clamp: 1;
                             -webkit-box-orient: vertical;
                             overflow: hidden;
+
                             &:nth-child(1) {
                                 font-size: 16px;
                                 font-weight: 600;
@@ -2021,6 +2022,7 @@ body {
         .profile-btn {
             width: 40px;
             height: 40px;
+            display: none;
 
             img {
                 width: 32px;
@@ -2036,6 +2038,9 @@ body {
         }
     }
 
+    .search-input {
+        display: none;
+    }
 
     .browse-container {
         display: grid;

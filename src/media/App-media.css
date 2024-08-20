@@ -117,8 +117,12 @@
                     & .browse-container {
                         grid-template-columns: repeat(2,1fr);
                         .content {
-                            width: 167px;
+                            width: 100%;
                             height: 150px;
+                            img{
+                                width: 100%;
+                                max-width: 120px;
+                            }
                         }
                     }
                     .search-input{

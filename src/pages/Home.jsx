@@ -116,7 +116,9 @@ function Home() {
                 //     },
                 //   })
                 //   .then((res) => {
+                   
                 //   })
+            
             })
     }, [])
 
@@ -124,11 +126,11 @@ function Home() {
         <>
             <div className="sections">
                 <button className="profile-btn">
-					<img
-						src="/images/user.jpg"
-						className="profile-image"
-					/>
-				</button>
+          <img
+            src="/images/user.jpg"
+            className="profile-image"
+          />
+        </button>
                 <button className="section active-section">All</button>
                 <button className="section">Music</button>
                 <button className="section">Podcasts</button>
@@ -139,6 +141,7 @@ function Home() {
                     <Followings key={artist.id} item={artist} />
                 ))}
             </div>
+
 
             <div className="made-for-user boxes">
                 <div className="boxes-top">

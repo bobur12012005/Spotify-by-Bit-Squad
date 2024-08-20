@@ -10,6 +10,7 @@ import Login from "./pages/Login"
 import "./media/App-media.css"
 import Download from "./pages/Download"
 import DownloadMobile from "./pages/DownloadMobile"
+import Artist from "./pages/Artist"
 
 export let artists = [
   {
@@ -99,6 +100,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/download" element={<Download />} />
         <Route path="/downloadMobile" element={<DownloadMobile />} />
+        <Route path="/artist/:id" element={<Artist />} />
       </Route>
 
       <Route path="/Login" element={<Login />} />

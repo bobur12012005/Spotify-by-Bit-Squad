@@ -20,6 +20,48 @@
                     width: 100%;
                 }
             }
+            .main-title-area{
+                width: 100%;
+                height: 300px;
+                z-index: 20;
+                margin-top: -65px;
+                .playlist-data{
+                    height: 300px;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 20px;
+                    justify-content: flex-end;
+                    .right-side-data{
+                        .check{
+                            color: #fff;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            margin-bottom: -30px;
+                        }
+                        .artist-name{
+                            color: #fff;
+                            font-size: 80px;
+                            font-weight: 800;
+                            flex-wrap: nowrap;
+                        }
+                        .artist-listeners{
+                            color: #fff;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+            .popular-songs-artist{
+                .song-top-artist{
+                    h3{
+                        padding-inline: 20px;
+                        color: #fff;
+                        font-size: 24px;
+                    }
+                }
+            }
         }
     }
 }

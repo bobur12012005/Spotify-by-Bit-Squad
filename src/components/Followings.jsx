@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom';
+
 function Followings({ item }) {
   const imageUrl =
     item.images && item.images.length > 0
@@ -22,4 +23,4 @@ function Followings({ item }) {
   );
 }
 
-export default Followings;
+export default Followings

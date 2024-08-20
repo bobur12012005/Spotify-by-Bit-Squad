@@ -210,7 +210,7 @@ body {
                             position: relative;
 
                             input {
-                                padding-inline: 30px 0;
+                                padding-inline: 33px 0;
                                 background: #252525;
                                 position: absolute;
                                 left: -180px;
@@ -1094,6 +1094,11 @@ body {
                                 font-size: 16px;
                                 font-weight: 500;
                                 color: white;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 1;
+
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
                             }
 
 
@@ -1174,6 +1179,10 @@ body {
                             color: white;
                             font-size: 80px;
                             font-weight: 900;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
 
                             &:nth-child(1) {
                                 font-size: 16px;
@@ -2013,6 +2022,7 @@ body {
         .profile-btn {
             width: 40px;
             height: 40px;
+            display: none;
 
             img {
                 width: 32px;
@@ -2028,6 +2038,9 @@ body {
         }
     }
 
+    .search-input {
+        display: none;
+    }
 
     .browse-container {
         display: grid;

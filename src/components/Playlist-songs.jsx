@@ -10,20 +10,21 @@ function Songs({ item, number }) {
 
     return `${minutes}:${formattedSeconds}`
   }
-  const formattedDuration = formatDuration(item.track.duration_ms)
+  const track = item.track || item;
+  const formattedDuration = formatDuration(track.duration_ms || 0);
   return (
     <div className="song">
       <div className="left-song">
         <span className="number">{number}</span>
         <div className="img">
-          <img src={item.track.album.images[0].url} alt="Song" />
+          <img src={track.album?.images[0]?.url || 'default-image-url.jpg'} alt="Song" />
         </div>
         <a href="#" className="title">
-          {item.track.album.name}
+          {track.album?.name || 'Unknown Album'}
         </a>
       </div>
       <div className="popularity">
-        <span>{item.track.popularity} / 100</span>
+        <span>{track.popularity ? `${track.popularity} / 100` : 'No popularity data'}</span>
       </div>
       <div className="duration">
         <span>{formattedDuration}</span>

@@ -337,9 +337,7 @@ const Layout = () => {
               <span>Download</span>
             </button>
           </Link>
-
         </div>
-
       </div>
       {/* <div className="modal-container"></div> */}
     </>

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Contents from '../components/Contents'
-import { artists } from './Home'
 import Songs from '../components/Playlist-songs'
+import ArtistContent from '../components/Artist-content'
 
 function Profile() {
     const [profileData, setProfileData] = useState({})
@@ -93,7 +92,7 @@ function Profile() {
                 </div>
                 <div className="made-for-user-container">
                     {profileFollowings.slice(0, 4).map((artist) => (
-                        <Contents
+                        <ArtistContent
                             key={artist.id}
                             item={artist}
                         />

@@ -107,16 +107,17 @@ function Home() {
             })
             .then((res) => {
                 SetPlaylist(res.data.playlists.items)
-                let id = res.data.playlists.items[0].id;
-                axios
-                  .get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
-                    headers: {
-                      Authorization: `Bearer ${token}`,
-                    },
-                  })
-                  .then((res) => {
-                    setTracks(res.data.items)
-                  })
+                setTracks(res.data.playlists.items)
+                // let id = res.data.playlists.items[0].id;
+                // axios
+                //   .get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
+                //     headers: {
+                //       Authorization: `Bearer ${token}`,
+                //     },
+                //   })
+                //   .then((res) => {
+                   
+                //   })
             
             })
     }, [])
@@ -136,7 +137,7 @@ function Home() {
             </div>
 
             <div className="following-singers-container">
-                {Tracks.slice(0,8).map((artist) => (
+                {Tracks.slice(10,18).map((artist) => (
                     <Followings key={artist.id} item={artist} />
                 ))}
             </div>

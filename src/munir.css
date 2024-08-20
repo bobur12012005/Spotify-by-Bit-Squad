@@ -200,13 +200,28 @@ body {
                         justify-content: space-between;
                         margin-bottom: 8px;
 
+                        .search-side.show-input input {
+                            left: 0px;
+                        }
+
                         .search-side {
                             display: flex;
                             flex-direction: row;
                             align-items: center;
+                            position: relative;
 
                             input {
-                                display: none;
+                                padding-inline: 33px 0;
+                                background: #252525;
+                                position: absolute;
+                                left: -180px;
+                                width: 180px;
+                                height: 29px;
+                                border-radius: 5px;
+                                border: 0;
+                                color: white;
+                                transition: left 0.3s ease;
+                                outline: none;
                             }
 
                             button {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 
-const CLIENT_ID = "1ae19f8d2f234e7c892017b84a40f24d"
+const CLIENT_ID = "f7a7db9b182b4a528f8a9e87c62fff02"
 const REDIRECT_URI = "http://localhost:5173"
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
 const RESPONSE_TYPE = "token"

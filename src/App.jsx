@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./App.css"
 import "./munir.css"
 import Layout from "./Layout/Layout"

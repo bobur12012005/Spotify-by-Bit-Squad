@@ -94,7 +94,7 @@ function Home() {
             }
         }
     }, []);
-    
+
     const [Playlist, SetPlaylist] = useState([]);
     const [Tracks, setTracks] = useState([]);
     useEffect(() => {
@@ -116,7 +116,9 @@ function Home() {
                 //     },
                 //   })
                 //   .then((res) => {
+
                 //   })
+
             })
     }, [])
 
@@ -124,21 +126,22 @@ function Home() {
         <>
             <div className="sections">
                 <button className="profile-btn">
-					<img
-						src="/images/user.jpg"
-						className="profile-image"
-					/>
-				</button>
+                    <img
+                        src="/images/user.jpg"
+                        className="profile-image"
+                    />
+                </button>
                 <button className="section active-section">All</button>
                 <button className="section">Music</button>
                 <button className="section">Podcasts</button>
             </div>
 
             <div className="following-singers-container">
-                {Tracks.slice(10,18).map((artist) => (
+                {Tracks.slice(10, 18).map((artist) => (
                     <Followings key={artist.id} item={artist} />
                 ))}
             </div>
+
 
             <div className="made-for-user boxes">
                 <div className="boxes-top">
@@ -146,7 +149,7 @@ function Home() {
                     <button className="show-all-1">Show All</button>
                 </div>
                 <div className="made-for-user-container boxes-content-container">
-                    {Playlist.slice(0,8).map((content) => (
+                    {Playlist.slice(0, 8).map((content) => (
                         <Contents key={content.id} item={content} />
                     ))}
                 </div>

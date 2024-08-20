@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from "axios";
-import LeftSideBar from '../components/LeftSideBar'
-import LeftSideBarMini from "../components/LeftSideBarMini"
+import LeftSideBar from "../components/LeftSideBar";
+import LeftSideBarMini from "../components/LeftSideBarMini";
+// import { useDebounce } from "@uidotdev/usehooks";
 
 const Layout = () => {
   let token = localStorage.getItem("token");
@@ -10,38 +12,44 @@ const Layout = () => {
   const showInput = location.pathname === "/Search";
   const showExploreButton = location.pathname !== "/Search";
   const [isActive, setIsActive] = useState(false);
-  const handleClick = () => {
-    setIsActive((prevState) => !prevState);
-  };
-  const containerClassName = isActive
-    ? "search-side show-input"
-    : "search-side";
+
 
   const handleBack = () => {
-    window.history.back()
-  }
+    window.history.back();
+  };
 
   const handleForward = () => {
-    window.history.forward()
-  }
+    window.history.forward();
+  };
 
-  const [isMini, setIsMini] = useState(true)
+  const [isMini, setIsMini] = useState(true);
   const openContextMenu = (event) => {
     event.preventDefault();
-  }
+  };
 
   const toggleSidebar = () => {
     setIsMini(!isMini);
-  }
-
+  };
 
   const [openModal, setOpenModal] = useState(false);
 
   const handleModal = () => {
-    setOpenModal(!openModal); // Toggle the modal state
-  }
+    setOpenModal(!openModal);
+  };
 
+  // const paramsText = location.pathname
+  //   .split("/")
+  //   .at(-1)
+  //   .replaceAll(/%20/g, " ");
+  // const [query, setQuery] = useState(paramsText || "");
+  // const navigate = useNavigate();
+  // const debouncedSearchTerm = useDebounce(query, 300);
 
+  // useEffect(() => {
+  //   if (query) {
+  //     navigate(`/search/${query}`);
+  //   }
+  // }, [debouncedSearchTerm]);
   return (
     <>
       <div className="over-total" onContextMenu={openContextMenu}>
@@ -54,7 +62,7 @@ const Layout = () => {
           <main
             className="container"
             style={{
-              width: isMini ? "calc(100% - 680px)" : "calc(100% - 340px)"
+              width: isMini ? "calc(100% - 680px)" : "calc(100% - 340px)",
             }}
           >
             <header>
@@ -66,7 +74,14 @@ const Layout = () => {
                   <button onClick={handleForward}>
                     <img src="/icons/next-page.svg" />
                   </button>
-                  {showInput && <input type="text" placeholder="Search..." />}
+                  {showInput && (
+                    <input
+                      // value={query}
+                      // onChange={(e) => setQuery(e.target.value)}
+                      type="text"
+                      placeholder="Search..."
+                    />
+                  )}
                 </div>
                 <div className="right-header">
                   {showExploreButton && (
@@ -89,13 +104,17 @@ const Layout = () => {
                   </button>
                   {openModal && (
                     <div className="header-profile-modal" onClick={handleModal}>
-                      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                      <div
+                        className="modal-content"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         <Link className="profile-link" to="/profile">
                           <button>Profile</button>
                         </Link>
                         <Link className="logout-link" to="/login">
                           <button>Log-out</button>
                         </Link>
+
                       </div>
                     </div>
                   )}
@@ -131,7 +150,6 @@ const Layout = () => {
                   </a>
                 </div>
                 <div className="spotify-plans links-column">
-
                   <span>Spotify Plans</span>
                   <a href="https://www.spotify.com/uz/premium/?ref=spotifycom_footer_premium_individual">
                     Premium Individual
@@ -309,19 +327,34 @@ const Layout = () => {
               />
             </div>
           </div>
-
         </div>
 
         <div className="tools">
           <Link to="/" id="home-btn">
-            <button className={location.pathname === '/' ? 'active-button' : ''}>
-              <img src={location.pathname === '/' ? '/icons/home-active.svg' : '/icons/home.svg'} />
+            <button
+              className={location.pathname === "/" ? "active-button" : ""}
+            >
+              <img
+                src={
+                  location.pathname === "/"
+                    ? "/icons/home-active.svg"
+                    : "/icons/home.svg"
+                }
+              />
               <span>Home</span>
             </button>
           </Link>
           <Link to="/Search" id="search-btn">
-            <button className={location.pathname === '/Search' ? 'active-button' : ''}>
-              <img src={location.pathname === '/Search' ? '/icons/search-active.svg' : '/icons/search.svg'} />
+            <button
+              className={location.pathname === "/Search" ? "active-button" : ""}
+            >
+              <img
+                src={
+                  location.pathname === "/Search"
+                    ? "/icons/search-active.svg"
+                    : "/icons/search.svg"
+                }
+              />
               <span>Search</span>
             </button>
           </Link>
@@ -331,7 +364,10 @@ const Layout = () => {
           </button>
           <Link to="/DownloadMobile" className="download">
             <button
-              style={{ display: location.pathname === "/DownloadMobile" ? "none" : "block" }}
+              style={{
+                display:
+                  location.pathname === "/DownloadMobile" ? "none" : "block",
+              }}
             >
               <img src="/icons/logoforMobile.svg" alt="logo" />
               <span>Download</span>
@@ -341,7 +377,7 @@ const Layout = () => {
       </div>
       {/* <div className="modal-container"></div> */}
     </>
-  )
-}
+  );
+};
 
 export default Layout;

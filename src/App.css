@@ -243,6 +243,7 @@ body {
                             }
                         }
 
+
                         .recents {
                             display: flex;
                             flex-direction: row;
@@ -337,6 +338,7 @@ body {
                                     background-color: #404040;
                                 }
                             }
+
 
                             .active-singer-playing-music {
                                 .data-side {
@@ -459,6 +461,7 @@ body {
                             }
                         }
 
+
                         .library-controller-top-right {
                             display: flex;
                             align-items: center;
@@ -570,6 +573,7 @@ body {
                                 font-size: 16px;
                             }
 
+
                             img {
                                 width: 22px;
                                 height: 22px;
@@ -667,6 +671,7 @@ body {
                                     display: block;
                                 }
                             }
+
 
                             .active-singer-stopped-music {
                                 .song-playing-info {
@@ -779,6 +784,7 @@ body {
                                 height: 25px;
                             }
                         }
+
 
                         .explore-btn {
                             background: white;
@@ -905,6 +911,7 @@ body {
                     display: none;
                 }
 
+
                 .active-section {
                     color: black;
                     background-color: white;
@@ -1025,6 +1032,7 @@ body {
                         color: white;
                     }
 
+
                     button {
                         font-size: 16px;
                         font-weight: 700;
@@ -1137,6 +1145,7 @@ body {
                     }
                 }
             }
+
 
             .your-favorite-artists {
                 .your-favorite-artists-container {
@@ -1260,6 +1269,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 padding-inline: 20px;
+
 
                 .song-top {
                     position: sticky;
@@ -1390,6 +1400,7 @@ body {
                             color: white;
                             margin-left: 23px;
 
+
                             &:hover {
                                 text-decoration: underline;
                             }
@@ -1514,6 +1525,7 @@ body {
             overflow-y: scroll;
             scrollbar-width: none;
             min-width: 300px;
+
 
             .right-container-top {
                 display: flex;
@@ -1645,6 +1657,7 @@ body {
                 overflow: hidden;
                 margin-inline: 20px;
 
+
                 .singer-img {
                     width: 100%;
                     height: 200px;
@@ -1775,6 +1788,7 @@ body {
                 align-items: start;
                 flex-direction: column;
                 gap: 2px;
+
 
                 .title {
                     font-size: 16px;
@@ -1914,6 +1928,7 @@ body {
             gap: 20px;
             width: 25%;
             padding-right: 10px;
+
 
             #song-info {
                 width: 15px;
@@ -2067,6 +2082,7 @@ body {
                 color: white;
             }
 
+
             img {
                 position: absolute;
                 width: 115px;
@@ -2202,7 +2218,7 @@ body {
     display: flex;
     flex-direction: column;
     padding-inline: 20px;
-    margin-top: 50px;
+    margin-top: 10px;
 
     .song-top-user {
         width: 100%;
@@ -2275,6 +2291,7 @@ body {
                 object-fit: cover;
             }
         }
+
 
         .content-data {
             display: flex;

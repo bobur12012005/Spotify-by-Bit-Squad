@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./App.css"
-// import "./munir.css"
+import "./munir.css"
 import Layout from "./Layout/Layout"
 import Search from "./pages/Search"
 import Home from "./pages/Home"
@@ -10,6 +10,8 @@ import Login from "./pages/Login"
 import "./media/App-media.css"
 import Download from "./pages/Download"
 import DownloadMobile from "./pages/DownloadMobile"
+import Artist from "./pages/Artist"
+import Tracks from "./pages/Tracks-page"
 
 export let artists = [
   {
@@ -99,6 +101,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/download" element={<Download />} />
         <Route path="/downloadMobile" element={<DownloadMobile />} />
+        <Route path="/Artist/:id" element={<Artist />} />
+        <Route path="/Tracks-page/:id" element={<Tracks/>}/>
       </Route>
 
       <Route path="/Login" element={<Login />} />

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function Singers({ item }) {
     return (
-        <Link to={`/Artist/${item.id}`}  className="left-sidebar-singer">
+        <Link to={`/artist/${item.id}`}  className="left-sidebar-singer">
         <div className="singer">
                 <div className="data-side">
                     <div className="singer-img">

@@ -13,7 +13,6 @@ const Layout = () => {
   const showExploreButton = location.pathname !== "/Search";
   const [isActive, setIsActive] = useState(false);
 
-
   const handleBack = () => {
     window.history.back();
   };
@@ -204,7 +203,6 @@ const Layout = () => {
             </footer>
           </main>
 
-
           <aside className="right-sidebar active-right-sidebar">
             <div className="right-container-top">
               <a href="#" className="sidebar-artist-names">
@@ -318,7 +316,6 @@ const Layout = () => {
             <div className="sound">
               <img src="/icons/volume.svg" alt="Volume" />
               <input
-
                 type="range"
                 id="volume"
                 defaultValue="100"

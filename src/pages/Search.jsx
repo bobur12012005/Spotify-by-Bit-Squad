@@ -1,5 +1,6 @@
 import React from "react"
 import BrowseContents from "../components/BrowseContents"
+import { useParams } from "react-router-dom";
 
 let allBrowse = [
     {
@@ -65,6 +66,7 @@ let allBrowse = [
 ]
 
 function Search() {
+    const { query } = useParams();
     return (
         <>
             <section className="browse">
@@ -75,6 +77,7 @@ function Search() {
 				    		className="profile-image"
 				    	/>
 				    </button>
+                    {/* <h1>Search Results for: {query}</h1> */}
                     <span>Browse All</span>
                 </div>
                 <div className="search-input">

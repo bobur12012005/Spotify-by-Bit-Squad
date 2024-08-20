@@ -116,15 +116,9 @@ function Home() {
                 //     },
                 //   })
                 //   .then((res) => {
-<<<<<<< HEAD
 
                 //   })
 
-=======
-                   
-                //   })
-            
->>>>>>> ab3c07d13b1c2b3a4db03a5ec217e692bfd06d9f
             })
     }, [])
 
@@ -132,19 +126,11 @@ function Home() {
         <>
             <div className="sections">
                 <button className="profile-btn">
-<<<<<<< HEAD
                     <img
                         src="/images/user.jpg"
                         className="profile-image"
                     />
                 </button>
-=======
-          <img
-            src="/images/user.jpg"
-            className="profile-image"
-          />
-        </button>
->>>>>>> ab3c07d13b1c2b3a4db03a5ec217e692bfd06d9f
                 <button className="section active-section">All</button>
                 <button className="section">Music</button>
                 <button className="section">Podcasts</button>

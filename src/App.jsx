@@ -105,9 +105,7 @@ function App() {
         <Route path="/Tracks-page/:id" element={<Tracks/>}/>
         <Route path="/artist/:id" element={<Artist />} />
       </Route>
-
       <Route path="/Login" element={<Login />} />
-      
     </Routes>
   )
 }

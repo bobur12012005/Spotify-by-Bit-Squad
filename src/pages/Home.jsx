@@ -96,6 +96,7 @@ function Home() {
     }, []);
     
     const [Playlist, SetPlaylist] = useState([]);
+    const [Tracks, setTracks] = useState([]);
     useEffect(() => {
         let token = localStorage.getItem("token");
         axios
@@ -106,6 +107,18 @@ function Home() {
             })
             .then((res) => {
                 SetPlaylist(res.data.playlists.items)
+                setTracks(res.data.playlists.items)
+                // let id = res.data.playlists.items[0].id;
+                // axios
+                //   .get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
+                //     headers: {
+                //       Authorization: `Bearer ${token}`,
+                //     },
+                //   })
+                //   .then((res) => {
+                   
+                //   })
+            
             })
     }, [])
 
@@ -113,21 +126,22 @@ function Home() {
         <>
             <div className="sections">
                 <button className="profile-btn">
-					<img
-						src="/images/user.jpg"
-						className="profile-image"
-					/>
-				</button>
+          <img
+            src="/images/user.jpg"
+            className="profile-image"
+          />
+        </button>
                 <button className="section active-section">All</button>
                 <button className="section">Music</button>
                 <button className="section">Podcasts</button>
             </div>
 
             <div className="following-singers-container">
-                {artists.map((artist) => (
+                {Tracks.slice(10,18).map((artist) => (
                     <Followings key={artist.id} item={artist} />
                 ))}
             </div>
+
 
             <div className="made-for-user boxes">
                 <div className="boxes-top">
@@ -135,7 +149,7 @@ function Home() {
                     <button className="show-all-1">Show All</button>
                 </div>
                 <div className="made-for-user-container boxes-content-container">
-                    {Playlist.map((content) => (
+                    {Playlist.slice(0,8).map((content) => (
                         <Contents key={content.id} item={content} />
                     ))}
                 </div>

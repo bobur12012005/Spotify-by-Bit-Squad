@@ -97,6 +97,8 @@ function Home() {
 
     const [Playlist, SetPlaylist] = useState([]);
     const [Tracks, setTracks] = useState([]);
+    const [favArtists, setFavArtist] = useState([]);
+
     useEffect(() => {
         let token = localStorage.getItem("token");
         axios
@@ -122,6 +124,37 @@ function Home() {
             })
     }, [])
 
+    let token = localStorage.getItem('token')
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const responsePlaylists = await axios.get("https://api.spotify.com/v1/me/playlists", {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+
+                const playlistId = responsePlaylists.data.items[0].id
+
+                const responseTracks = await axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+
+                const artistIds = responseTracks.data.items.map(track => track.track.artists[0].id).join(',')
+
+                const responseArtists = await axios.get(`https://api.spotify.com/v1/artists?ids=${artistIds}`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+
+                setFavArtist(responseArtists.data.artists)
+            } catch (error) {
+                console.error("Error fetching data from Spotify API:", error)
+            }
+        }
+
+        if (token) {
+            fetchData()
+        }
+    }, [token])
+
     return (
         <>
             <div className="sections">
@@ -142,7 +175,6 @@ function Home() {
                 ))}
             </div>
 
-
             <div className="made-for-user boxes">
                 <div className="boxes-top">
                     <span>Made For User</span>
@@ -161,7 +193,7 @@ function Home() {
                     <button className="show-all-2">Show All</button>
                 </div>
                 <div className="your-favorite-artists-container boxes-content-container">
-                    {artists.slice(0, 4).map((content) => (
+                    {favArtists.slice(0, 4).map((content) => (
                         <Contents key={content.id} item={content} />
                     ))}
                 </div>

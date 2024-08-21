@@ -68,7 +68,7 @@ let allBrowse = [
 ]
 
 function Search() {
-    const { query } = useParams()
+    const { query } = useParams();
     return (
         <>
             <section className="search-results">

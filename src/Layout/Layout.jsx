@@ -13,6 +13,18 @@ const Layout = () => {
   const showExploreButton = location.pathname !== "/Search";
   const [isActive, setIsActive] = useState(false);
 
+  const [profImage, setProfImage] = useState({})
+  axios.get('https://api.spotify.com/v1/me', {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then(res => {
+      setProfImage(res.data)
+    })
+
+  const profileImage = profImage.images && profImage.images.length > 1 ? profImage.images[1].url : '/images/user.jpg'
+
   const handleBack = () => {
     window.history.back();
   };
@@ -100,7 +112,7 @@ const Layout = () => {
                     />
                   </button>
                   <button className="profile-btn" onClick={handleModal}>
-                    <img src="/images/user.jpg" className="profile-image" />
+                    <img src={profileImage} className="profile-image" />
                   </button>
                   {openModal && (
                     <div className="header-profile-modal" onClick={handleModal}>

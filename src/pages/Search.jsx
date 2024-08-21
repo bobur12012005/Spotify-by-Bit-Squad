@@ -2,6 +2,7 @@ import React from "react"
 import BrowseContents from "../components/BrowseContents"
 import { useParams } from "react-router-dom"
 import Songs from "../components/Playlist-songs"
+import SearchMusics from "../components/Search-Musics"
 
 let allBrowse = [
     {
@@ -67,7 +68,7 @@ let allBrowse = [
 ]
 
 function Search() {
-    const { query } = useParams();
+    const { query } = useParams()
     return (
         <>
             <section className="search-results">
@@ -89,7 +90,9 @@ function Search() {
                     <div className="top">
                         <span>Songs</span>
                     </div>
-                    <div className="other-results-container"></div>
+                    <div className="other-results-container">
+                        <SearchMusics />
+                    </div>
                 </div>
             </section>
 

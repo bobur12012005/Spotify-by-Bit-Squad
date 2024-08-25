@@ -2463,3 +2463,18 @@ display: -webkit-box;
         }
     }
 }
+
+
+
+
+
+
+
+
+.made-for-user-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-inline: 10px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}

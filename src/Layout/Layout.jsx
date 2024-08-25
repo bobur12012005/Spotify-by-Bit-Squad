@@ -14,6 +14,7 @@ const Layout = ({ onSearch }) => {
   const [isActive, setIsActive] = useState(false);
 
   const [profImage, setProfImage] = useState({})
+  useEffect(()=>{
   axios.get('https://api.spotify.com/v1/me', {
     headers: {
       Authorization: `Bearer ${token}`
@@ -22,7 +23,7 @@ const Layout = ({ onSearch }) => {
     .then(res => {
       setProfImage(res.data)
     })
-
+  },[])
   const profileImage = profImage.images && profImage.images.length > 1 ? profImage.images[1].url : '/images/user.jpg'
 
   const handleBack = () => {

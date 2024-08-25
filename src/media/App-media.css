@@ -50,6 +50,7 @@
         & .total-container {
             & .container {
                 min-width: unset;
+                max-width: unset;
                 & footer {
                     .footer-top {
                         display: flex;
@@ -94,6 +95,7 @@
         & .total-container {
             & .container {
                 min-width: unset;
+                max-width: unset;
                 .sections {
                     display: flex;
                     .profile-btn{

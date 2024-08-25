@@ -31,7 +31,7 @@ function Playlist() {
   }, [])
   return (
     <>
-      <div className="playlist-img-data-place">
+      <div className="playlist-img-data-place xs:justify-center xs:!items-center">
         <PlaylistTitle item={playlistTitle} />
       </div>
 
@@ -48,12 +48,12 @@ function Playlist() {
       </div>
 
       <div className="popular-songs">
-        <div className="song-top">
+        <div className="song-top xs:!static">
           <div className="left-song">
             <span className="number">#</span>
             <span className="title">Title</span>
           </div>
-          <div className="popularity">
+          <div className="popularity xs:!hidden">
             <span>Popularity</span>
           </div>
           <div className="duration">

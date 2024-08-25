@@ -15,15 +15,15 @@ function Songs({ item, number }) {
   return (
     <div className="song">
       <div className="left-song">
-        <span className="number">{number}</span>
+        <span className="number xs:!hidden">{number}</span>
         <div className="img">
           <img src={track.album?.images[0]?.url || 'default-image-url.jpg'} alt="Song" />
         </div>
-        <a href="#" className="title">
+        <a  href="#" className="title xxs:text-xs">
           {track.album?.name || 'Unknown Album'}
         </a>
       </div>
-      <div className="popularity">
+      <div className="popularity xs:!hidden">
         <span>{track.popularity ? `${track.popularity} / 100` : 'No popularity data'}</span>
       </div>
       <div className="duration">

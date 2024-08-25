@@ -12,6 +12,7 @@ import Download from "./pages/Download"
 import DownloadMobile from "./pages/DownloadMobile"
 import Artist from "./pages/Artist"
 import Tracks from "./pages/Tracks-page"
+import { useState } from 'react';
 
 export let artists = [
   {
@@ -92,12 +93,17 @@ export let content_albums = [
 ]
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+     <Route path="/" element={<Layout onSearch={handleSearch}/>}>
         <Route index element={<Home />} />
         <Route path="/playlist/:id" element={<Playlist />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search query={searchQuery} />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/download" element={<Download />} />
         <Route path="/downloadMobile" element={<DownloadMobile />} />

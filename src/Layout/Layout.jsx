@@ -6,7 +6,7 @@ import LeftSideBar from "../components/LeftSideBar";
 import LeftSideBarMini from "../components/LeftSideBarMini";
 // import { useDebounce } from "@uidotdev/usehooks";
 
-const Layout = () => {
+const Layout = ({ onSearch }) => {
   let token = localStorage.getItem("token");
   const location = useLocation();
   const showInput = location.pathname === "/Search";
@@ -49,19 +49,16 @@ const Layout = () => {
   };
 
   const isArtistsPage = location.pathname.startsWith('/artist')
-  // const paramsText = location.pathname
-  //   .split("/")
-  //   .at(-1)
-  //   .replaceAll(/%20/g, " ");
-  // const [query, setQuery] = useState(paramsText || "");
-  // const navigate = useNavigate();
-  // const debouncedSearchTerm = useDebounce(query, 300);
+  const [query, setQuery] = useState('');
 
-  // useEffect(() => {
-  //   if (query) {
-  //     navigate(`/search/${query}`);
-  //   }
-  // }, [debouncedSearchTerm]);
+  const handleInputChange = (e) => {
+    const newQuery = e.target.value;
+    setQuery(newQuery)
+    if (onSearch) {
+      onSearch(newQuery)
+    }
+  }
+
   return (
     <>
       <div className="over-total" onContextMenu={openContextMenu}>
@@ -88,8 +85,8 @@ const Layout = () => {
                   </button>
                   {showInput && (
                     <input
-                      // value={query}
-                      // onChange={(e) => setQuery(e.target.value)}
+                    value={query}
+                    onChange={handleInputChange}
                       type="text"
                       placeholder="Search..."
                     />

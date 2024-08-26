@@ -68,7 +68,7 @@ function Artist() {
         <div className="song-top-artist">
             <h3>Популярные треки</h3>
         </div>
-        <div className="popular-songs-container">
+        <div className="popular-songs-container xs:p-[20px]">
           {tracks.map((item, index) => (
             <Songs key={item.id} item={item} number={index + 1} />
           ))}

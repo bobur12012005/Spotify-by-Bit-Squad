@@ -4,6 +4,7 @@ import axios from "axios";
 import PlaylistTitle from "../components/Playlist-title";
 
 function Playlist() {
+<<<<<<< HEAD
     let [tracks, setTracks] = useState([]);
     let [playlistTitle, setPlaylistTitle] = useState([]);
     useEffect(() => {
@@ -34,6 +35,38 @@ function Playlist() {
             <div className="playlist-img-data-place">
                 <PlaylistTitle item={playlistTitle} />
             </div>
+=======
+  let [tracks, setTracks] = useState([]);
+  let [playlistTitle, setPlaylistTitle] = useState([]);
+  useEffect(() => {
+    let hash = location.pathname;
+    let token = localStorage.getItem("token");
+    let id = hash.split("/").at(-1);
+    axios
+      .get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setTracks(res.data.items)
+      })
+    axios
+      .get(`https://api.spotify.com/v1/playlists/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setPlaylistTitle(res.data);
+      })
+  }, [])
+  return (
+    <>
+      <div className="playlist-img-data-place xs:justify-center xs:!items-center">
+        <PlaylistTitle item={playlistTitle} />
+      </div>
+>>>>>>> b1233ef19e7874b842469a305737f58fcc68c68d
 
             <div className="total-play-button-place">
                 <button className="play-pause">
@@ -47,6 +80,7 @@ function Playlist() {
                 </button>
             </div>
 
+<<<<<<< HEAD
             <div className="popular-songs">
                 <div className="song-top">
                     <div className="left-song">
@@ -69,6 +103,30 @@ function Playlist() {
             </div>
         </>
     )
+=======
+      <div className="popular-songs">
+        <div className="song-top xs:!static">
+          <div className="left-song">
+            <span className="number">#</span>
+            <span className="title">Title</span>
+          </div>
+          <div className="popularity xs:!hidden">
+            <span>Popularity</span>
+          </div>
+          <div className="duration">
+            <img src="/icons/duration.svg" alt="" />
+          </div>
+        </div>
+        <div className="popular-songs-container">
+          {tracks.map((item, index) => (
+            <Songs key={item.track.id} item={item} number={index + 1} />
+          ))}
+        </div>
+        <button className="see-more">See more</button>
+      </div>
+    </>
+  )
+>>>>>>> b1233ef19e7874b842469a305737f58fcc68c68d
 }
 
 export default Playlist

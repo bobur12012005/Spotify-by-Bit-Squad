@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
 function Songs({ item, number }) {
   function formatDuration(durationMs) {
@@ -14,24 +13,24 @@ function Songs({ item, number }) {
   const track = item.track || item;
   const formattedDuration = formatDuration(track.duration_ms || 0);
   return (
-    <Link to={`/Tracks-page/${track.id}`}  className="song">
+    <div className="song">
       <div className="left-song">
-        <span className="number">{number}</span>
+        <span className="number xs:!hidden">{number}</span>
         <div className="img">
           <img src={track.album?.images[0]?.url || 'default-image-url.jpg'} alt="Song" />
         </div>
-        <span href="#" className="title">
+        <a  href="#" className="title xxs:text-xs">
           {track.album?.name || 'Unknown Album'}
-        </span>
+        </a>
       </div>
-      <div className="popularity">
+      <div className="popularity xs:!hidden">
         <span>{track.popularity ? `${track.popularity} / 100` : 'No popularity data'}</span>
       </div>
       <div className="duration">
         <span>{formattedDuration}</span>
       </div>
-    </Link>
-  )
+    </div>
+  );
 }
 
 export default Songs

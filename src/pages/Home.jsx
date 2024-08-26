@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Contents from "../components/Contents";
 import Followings from "../components/Followings";
 import axios from "axios";
+import AlbumContent from "../components/Album-content";
 
 export let artists = [
     {
@@ -94,7 +95,7 @@ function Home() {
             }
         }
     }, []);
-
+    const [albums, setAlbums] = useState([]);
     const [Playlist, SetPlaylist] = useState([]);
     const [Tracks, setTracks] = useState([]);
     const [favArtists, setFavArtist] = useState([]);
@@ -110,17 +111,14 @@ function Home() {
             .then((res) => {
                 SetPlaylist(res.data.playlists.items)
                 setTracks(res.data.playlists.items)
-                // let id = res.data.playlists.items[0].id;
-                // axios
-                //   .get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
-                //     headers: {
-                //       Authorization: `Bearer ${token}`,
-                //     },
-                //   })
-                //   .then((res) => {
-
-                //   })
-
+            })
+            axios.get("https://api.spotify.com/v1/browse/new-releases",{
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then(response=>{
+                setAlbums(response.data.albums.items);
             })
     }, [])
 
@@ -186,7 +184,15 @@ function Home() {
                     ))}
                 </div>
             </div>
-
+            <div className="made-for-user boxes">
+                <div className="boxes-top">
+                    <span>Albums</span>
+                    <button className="show-all-1">Show All</button>
+                </div>
+                <div className="made-for-user-container boxes-content-container">
+                   {albums.slice(0,8).map(item=><AlbumContent key={item.id} item={item}/>)}
+                </div>
+            </div>
             <div className="your-favorite-artists boxes">
                 <div className="boxes-top">
                     <span>Your Favorite Artists</span>

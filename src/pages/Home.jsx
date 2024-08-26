@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Contents from "../components/Contents";
 import Followings from "../components/Followings";
 import axios from "axios";
+import ArtistContent from "../components/Artist-content";
 
 export let artists = [
     {
@@ -194,7 +195,7 @@ function Home() {
                 </div>
                 <div className="your-favorite-artists-container boxes-content-container">
                     {favArtists.slice(0, 4).map((content) => (
-                        <Contents key={content.id} item={content} />
+                        <ArtistContent key={content.id} item={content} />
                     ))}
                 </div>
             </div>

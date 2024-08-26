@@ -13,6 +13,7 @@ import DownloadMobile from "./pages/DownloadMobile"
 import Artist from "./pages/Artist"
 import Tracks from "./pages/Tracks-page"
 import { useState } from 'react';
+import Album from './pages/Album';
 
 export let artists = [
   {
@@ -108,6 +109,7 @@ function App() {
         <Route path="/download" element={<Download />} />
         <Route path="/downloadMobile" element={<DownloadMobile />} />
         <Route path="/Artist/:id" element={<Artist />} />
+        <Route path="/Album/:id" element={<Album/>}/>
         <Route path="/Tracks-page/:id" element={<Tracks/>}/>
         <Route path="/artist/:id" element={<Artist />} />
       </Route>

@@ -4,6 +4,7 @@ import Songs from '../components/Playlist-songs';
 import axios from 'axios';
 import AlbumContent from '../components/Album-content';
 import ArtistContent from '../components/Artist-content';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -12,7 +13,6 @@ function Artist() {
     let [artistTitle, setArtistTitle] = useState([]);
     let [album, setAlbum] = useState([])
     let [similar, setSimilar] = useState([])
-
     useEffect(() => {
         let hash = location.pathname;
         let token = localStorage.getItem("token");

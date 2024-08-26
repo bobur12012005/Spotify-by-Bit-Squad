@@ -1380,7 +1380,11 @@ body {
                         .title {
                             color: white;
                             margin-left: 23px;
-
+                            /* display: -webkit-box;
+                            -webkit-line-clamp: 1; 
+                     
+                            -webkit-box-orient: vertical;
+                            overflow: hidden; */
                             &:hover {
                                 text-decoration: underline;
                             }
@@ -2433,7 +2437,11 @@ body {
                         margin-top: 10px;
                         color: white;
                         margin-left: 23px;
-
+display: -webkit-box;
+                            -webkit-line-clamp: 1; 
+                     height: 20px;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
                         &:hover {
                             text-decoration: underline;
                         }
@@ -2454,4 +2462,19 @@ body {
             }
         }
     }
+}
+
+
+
+
+
+
+
+
+.made-for-user-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-inline: 10px;
+    overflow-x: scroll;
+    scrollbar-width: none;
 }
